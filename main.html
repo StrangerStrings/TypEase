@@ -1,0 +1,196 @@
+<title>TypEase</title>
+<link rel="stylesheet" href="styles/ztyle.css">
+
+<!-- external -->
+<script src="scripts/external/jquery-3.2.1.js"></script>
+<script src="scripts/external/mainloop.min.js"></script>
+<!-- <script src="scripts/external/bitstorm-animateColor.js"></script> -->
+
+<!-- modules -->
+<script src="scripts/variables.js"></script>
+<script src="scripts/learnLevels.js"></script>
+<script src="scripts/displayOnScreen.js"></script>
+<script src="scripts/addRemoveLetters.js"></script>
+<script src="scripts/SentenceGeneration.js"></script>
+<script src="scripts/loopFunctions.js"></script>
+<script src="scripts/sprint.js"></script>
+<script src="scripts/learn.js"></script>
+<script src="scripts/highLevel.js"></script>
+
+<!-- main -->
+<script src="script.js"></script>
+
+<body>
+
+
+
+
+
+
+
+   <div class="topcontainer">
+      <div class="scorebox">
+         <div class="score"></div>
+         <div class="borderbox borderbox1 "></div>
+      </div>
+
+
+
+      <div class="middlebox">
+         <div class="toptimerbuffer"></div>
+         <div class="gameArea">
+            <p class="infoText"></p>
+            <p class="sprintText"></p>
+            <span class='span00'></span><span class='span01'></span><span class='span02'></span><span class='span03'></span><span class='span04'></span><!--
+         --><span class='span05'></span><span class='span06'></span><span class='span07'></span><span class='span08'></span><span class='span09'></span><!--
+         --><span class='span10'></span><span class='span11'></span><span class='span12'></span><span class='span13'></span><span class='span14'></span><!--
+         --><span class='span15'></span><span class='span16'></span><span class='span17'></span><span class='span18'></span><span class='span19'></span><!--
+         --><span class='span20'></span><span class='span21'></span><span class='span22'></span><span class='span23'></span><span class='span24'></span><!--
+         --><span class='span25'></span><span class='span26'></span><span class='span27'></span><span class='span28'></span><span class='span29'></span><!--
+         --><span class='span30'></span><span class='span31'></span><span class='span32'></span><span class='span33'></span><span class='span34'></span><!--
+         --><span class='span35'></span><span class='span36'></span><span class='span37'></span><span class='span38'></span><span class='span39'></span><!--
+         --><span class='span40'></span><span class='span41'></span><span class='span42'></span><span class='span43'></span><span class='span44'></span><!--
+         --><span class='span45'></span><span class='span46'></span><span class='span47'></span><span class='span48'></span><span class='span49'></span><!--
+         --><span class='span50'></span><span class='span51'></span><span class='span52'></span><span class='span53'></span><span class='span54'></span><!--
+         --><span class='span55'></span><span class='span56'></span><span class='span57'></span><span class='span58'></span><span class='span59'></span><!--
+         --><span class='span60'></span><span class='span61'></span><span class='span62'></span><span class='span63'></span><span class='span64'></span><!--
+         --><span class='span65'></span><span class='span66'></span><span class='span67'></span><span class='span68'></span><span class='span69'></span><!--
+         --><span class='span70'></span><span class='span71'></span><span class='span72'></span><span class='span73'></span><span class='span74'></span><!--
+         --><span class='span75'></span><span class='span76'></span><span class='span77'></span><span class='span78'></span><span class='span79'></span><!--
+      --></div>
+         <div class="timerArea">
+            <div class="chancesholder">
+               <!-- <p>try again</p> -->
+               <div>
+               <div class="chance0">
+                  <div class="chanceblocker"></div>
+               </div>
+               <div class="chance chance5"></div>
+               <div class="chance chance4"></div>
+               <div class="chance chance3"></div>
+               <div class="chance chance2"></div>
+               <div class="chance chance1"></div>
+               </div>
+            </div>
+            <div class="timerholder" >
+               <div class="timerbar" >
+      <!-- #F1786D               #FF5E4F             #E85856          #E66F6D     #E8724A     #DD7E5E     #EF835F -->
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="controlbox">
+         <p class="lrn hidden">Learn</p><div class="nextButton lrn hidden" name="toSprint"></div>
+         <div class="nextButton  spr" name="toLearn"></div><p class=' spr'>Sprint</p>
+         <div class="startstop lrn hidden"></div>
+         <div class="startstop spr "></div>
+         <div class="borderbox borderbox2"></div>
+      </div>
+   </div>
+
+
+
+
+
+
+
+   <article>
+      <div class="keyboardrow">
+         <div class="ring-81 "><figure class="letter-81 letter-stnd ">q</figure></div>
+         <div class="ring-87 "><figure class="letter-87 letter-stnd ">w</figure></div>
+         <div class="ring-69 "><figure class="letter-69 letter-stnd ">e</figure></div>
+         <div class="ring-82 "><figure class="letter-82 letter-stnd ">r</figure></div>
+         <div class="ring-84 "><figure class="letter-84 letter-stnd ">t</figure></div>
+         <div class="ring-89 "><figure class="letter-89 letter-stnd ">y</figure></div>
+         <div class="ring-85 "><figure class="letter-85 letter-stnd ">u</figure></div>
+         <div class="ring-73 "><figure class="letter-73 letter-stnd ">i</figure></div>
+         <div class="ring-79 "><figure class="letter-79 letter-stnd ">o</figure></div>
+         <div class="ring-80 "><figure class="letter-80 letter-stnd ">p</figure></div>
+      </div>
+
+
+      <div class="keyboardrow">
+         <div class="ring-65 "><figure class="letter-65 letter-stnd ">a</figure></div>
+         <div class="ring-83 "><figure class="letter-83 letter-stnd ">s</figure></div>
+         <div class="ring-68 "><figure class="letter-68 letter-stnd ">d</figure></div>
+         <div class="ring-70  specialring"><figure class="letter-70 letter-stnd ">f</figure></div>
+         <div class="ring-71 "><figure class="letter-71 letter-stnd ">g</figure></div>
+         <div class="ring-72 "><figure class="letter-72 letter-stnd ">h</figure></div>
+         <div class="ring-74  specialring"><figure class="letter-74 letter-stnd ">j</figure></div>
+         <div class="ring-75 "><figure class="letter-75 letter-stnd ">k</figure></div>
+         <div class="ring-76 "><figure class="letter-76 letter-stnd ">l</figure></div>
+      </div>
+
+
+      <div class="keyboardrow">
+         <div class="ring-90 "><figure class="letter-90 letter-stnd ">z</figure></div>
+         <div class="ring-88 "><figure class="letter-88 letter-stnd ">x</figure></div>
+         <div class="ring-67 "><figure class="letter-67 letter-stnd ">c</figure></div>
+         <div class="ring-86 "><figure class="letter-86 letter-stnd ">v</figure></div>
+         <div class="ring-66 "><figure class="letter-66 letter-stnd ">b</figure></div>
+         <div class="ring-78 "><figure class="letter-78 letter-stnd ">n</figure></div>
+         <div class="ring-77 "><figure class="letter-77 letter-stnd ">m</figure></div>
+      </div>
+
+      <div class="letter-32">
+         <div class="spaceblocker"></div>
+      </div>
+   </article>
+
+
+
+
+
+   <div id="bottomcontainer">
+      <div class="highscore" style="margin-right:75px; color:#92DACC; font-weight: 700;">0</div>
+
+
+
+            <div class='button btn1'>R-All</div>
+            <div class='button btn2' ></div>
+            <div class='button btn3' >A-All</div>
+            <div class='button btn4' >add 8</div>
+            <div class='button btn5' >rem 5</div>
+      <!-- <div class="counter" style="margin-right:70px;"></div>
+      <div class="attempts" style="margin-right:300px;"></div> -->
+<!--
+      <div class="startstop" style="margin-right:30px;"></div> -->
+
+      <!-- <div class="timerholder" style="width:240px; margin-right:40px;">
+         <div class="timerbar" style="background-color:#EF835F; height:20px; width:40px; margin-top:4px; border-radius:3px;">
+#F1786D               #FF5E4F             #E85856          #E66F6D     #E8724A     #DD7E5E     #EF835F
+         </div>
+      </div> -->
+
+       <div id='illuminatetoggle'>
+         <div id="illuminatetoggle-inside"></div>
+      </div>
+<!--
+
+      <label><input type="checkbox" name="qwer">
+      <div class="togglebutton" ></div></label>
+
+      <label><input type="checkbox" name="uiop">
+      <div class="togglebutton" ></div></label>
+
+      <label><input type="checkbox" name="asdf">
+      <div class="togglebutton" ></div></label>
+
+      <label><input type="checkbox" name="jkl">
+      <div class="togglebutton"></div></label>
+
+      <label><input type="checkbox" name="tygh">
+      <div class="togglebutton" ></div></label>
+
+      <label><input type="checkbox" name="zxcv">
+      <div class="togglebutton" ></div></label>
+
+      <label><input type="checkbox" name="bnm">
+      <div class="togglebutton"></div></label> -->
+
+   </containter>
+
+</body>

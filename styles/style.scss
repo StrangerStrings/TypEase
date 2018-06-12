@@ -1,0 +1,118 @@
+@import "styles/top";
+@import "styles/keyboard";
+
+html{
+   font-size: 2em;
+}
+*{
+   padding:0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body{
+   background-color: #FFF9ca;
+   color: #624D74;
+   font-family: arial , sans-serif;
+   font-size: 1em;  /*responsive  34px;*/
+   font-weight: 500;
+}
+
+.hidden{display:none !important;}
+
+
+
+
+.togglebutton{
+   width:28px;
+   height: 28px;
+   margin-left: 8px;
+   background-color: #92DACC;
+}
+.togglebutton ,#illuminatetoggle {
+   border: solid 5px #92DACC;
+   border-radius: 19px;
+}
+
+#illuminatetoggle{
+   width:46px;
+   height: 28px;
+   margin-right: 25px;
+   background-color: #92DACC;
+}
+
+
+
+.button{
+   height:50px; width:50px;
+   border:solid 3px #7a71f4;
+   border-radius:0.3em;
+   margin:6px;
+   font-size: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bottomcontainer{
+   display: flex;
+   justify-content: flex-end;
+   width: 950px;
+}
+
+
+
+input[type="checkbox"]{
+   display: none;
+}
+
+
+
+
+
+
+
+
+/*
+92 - light blue
+7A - bluey grey
+
+#DBC8AB      sandy
+#98AEAB      blue
+#636069      dark
+
+
+#EBD5B0      sandy
+#7DB9AF      blue
+#625D74      dark
+
+
+#FAFCFC
+#B7DCF4
+#B5BDC4
+
+
+#FFF9ca
+#92DACC
+#4A73B1
+*/

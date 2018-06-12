@@ -1,0 +1,114 @@
+//whole keyboard container
+article{
+   width: 30rem;
+   margin: 1.9rem auto 0.2rem;
+   padding-left: 0.4rem;
+   display: block;
+   font-size: 0.6rem;
+}
+
+
+//each row of keys
+.keyboardrow{
+   display: block;
+   margin-bottom: 0.25rem;
+}
+//slanted positioning of rows
+.keyboardrow:nth-child(2){margin-left: 0.9rem;}
+.keyboardrow:nth-child(3){margin-left: 1.8rem;}
+
+
+//keys
+figure{
+   line-height: 100%;
+   padding: 0.6rem;
+   height:2.5rem;
+   width: 2.5rem;
+   display: inline-block;
+   border-radius: 100%;
+   border: solid 0.063rem;
+   text-align: center;
+   box-sizing: border-box;
+   font-size: 1.2rem;
+}
+
+
+//spacebar
+.letter-32{
+   position:relative;
+   height:1.5rem;
+   width: 10.75rem;
+   margin-left: 9.1rem;
+   border-radius: 1.5rem 1.5rem 0 0;
+   border: solid 0.143rem ;
+   border-bottom: none;
+}
+.spaceblocker{
+   position: absolute;
+   top: 0;
+   left: 0;
+   height:100%;
+   width:110%;
+   margin-left: -5%;
+   background:
+    linear-gradient(
+      rgba(255,249,202,0.1) 0%,
+      rgba(255,249,202,1) 50%
+    );
+}
+
+
+
+//rings
+.keyboardrow div{
+   border-radius: 100%;
+   display: inline-block;
+   padding: 0px;
+   font-weight: 749;
+   border: #92DACC solid 0.08rem;
+}
+// f & j
+.keyboardrow .ring-70 , .keyboardrow .ring-74{
+   border: #8980ff solid 0.08rem;
+   border: #8e85ff solid 0.08rem;
+}
+
+
+
+
+
+
+//possibly change the off name to a letter-off class and muck about with it
+//https://stackoverflow.com/questions/16646233/css3-transition-only-when-class-is-added-not-when-removed
+// put the transition 0s on different bits and read the confusing bottom comment in that ^
+//maybe these two too: https://css-tricks.com/almanac/properties/t/transition/
+// https://code.tutsplus.com/tutorials/css-fundamentals-css3-transitions--pre-10922
+
+.letter-stnd{
+   border-color: #92DACC ; background-color:#FFF9ca  ; color:#624D74 ;
+   transition: all 0s;
+   &.pressed{ background-color: #92DACC;}
+   &:not(.pressed){ transition: background-color 0.8s;}
+}
+.letter-appear{
+   border-color: #92DACC ; background-color:#FFF9ca  ; color:#FFF9ca ;
+   &.pressed{border-color:#92DACC ; background-color:#FFF9ca ; color:#624D74;}
+   // &.pressed{border-color:#92DACC ; background-color:#92DACC ; color:#624D74;}  with color
+   &:not(.pressed){ transition: border-color 0.6s , background-color 0.6s , color 0.6s;}
+}
+
+.letter-stnd[name='off'] , .letter-appear[name='off'] {
+   border-color: #FFF9ca ; background-color:#FFF9ca  ; color:#FFF9ca ;
+   &.pressed{ border-color: #92DACC;}
+   &:not(.pressed){ transition: border-color 0.6s , background-color 0.6s , color 0.6s;}
+}
+
+
+.letter-32{
+   // background-color: #FFF9CA;
+   border-color: #FFF9CA;
+   // &.pressed{ background-color: #92DACC;}
+   &.pressed{ border-color: #92DACC;}
+   // &:not(.pressed){ transition: background-color 0.8s}
+   &:not(.pressed){ transition: border-color 0.8s}
+}
