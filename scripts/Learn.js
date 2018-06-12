@@ -20,7 +20,7 @@ function toLearnModeText(){
    $('.infoText').html(learnInstructions);
 
    $('.sprintText').html('');
-   $('span').html('');
+   $('span').text('');
 
    chanceRecharge = 0;
    drawRechargingChance();

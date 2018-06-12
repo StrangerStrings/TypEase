@@ -21,7 +21,7 @@ function toSprintModeText(){
    chancesLeft = 5;
    redrawChances();
 
-   $('span').html('');
+   $('span').text('');
    $('.infoText').html('');
    $('.sprintText').html('Ready?');
 

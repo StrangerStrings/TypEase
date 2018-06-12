@@ -28,17 +28,18 @@ function updateScore(){
 
 function lettersOnScreen(){
 //    console.log(answerLetters);
-   $('span').html('');
+   // $('span').text('');
    for (i = 0; i < answerLetters.length; i++){
     for(j = 0; j < answerLetters[i].length; j++){
-        $('.span'+i+j).html(answerLetters[i][j].toLowerCase());
+        // $('.span'+i+j).text(answerLetters[i][j].toLowerCase());
+        console.log('poo')
       }
       if (timedWordBools[i]){
             // add together the lengths of all the letters
             // something like : for(j){ wordWidth += span+i+j .width }
 
             // then set the width of the div that's attached to each span+i+0 to this.
-            // It's already 'showing', it's just it's width is zero. 
+            // It's already 'showing', it's just it's width is zero.
             // absolutely mess with css
       }
     }
@@ -84,7 +85,3 @@ function addIncorrectLetter(){
    $('.span'+wordCounter+letterCounter).addClass('incorrectletter');
    $('.span'+wordCounter+letterCounter).animate({bottom: '-12px'},80).animate({bottom: '0px'},120);
 }
-
-
-
-
