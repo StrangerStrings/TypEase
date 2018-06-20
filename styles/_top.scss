@@ -9,11 +9,61 @@
 .scorebox{
    width: 6rem;
    height: 5rem;
+   position: relative;
+   text-align: center;
+}
+
+.learnbox-left{
+  text-align: center;
+  margin: 1rem 0 0 0.2rem;
+  div, h4{
+    display: inline-block;
+    min-width:0.6rem;
+    min-height:0.6rem;
+  }
+  h4{ 
+    font-size: 1.2rem;
+    padding: 0 0.4rem;
+    font-weight: 400;
+  }
+  div{
+    border-radius: 50%;
+    background-color: $main-color;
+    margin-bottom: 0.07rem;
+  }
 }
 
 
+.playbox-left{
+  margin-top: 0.2rem; 
+  padding: 0.3rem 1.7rem 0 1.9rem;
+  p{
+    font-size: 0.45rem;
+    padding-right: 0.4rem;
+  }
+  .scoree{
+    font-size: 1.8rem;
+    text-align: center;
+    margin: -0.05rem 0 0.2rem;
+  }
+  .highscore-is{
+    font-size: 0.45rem;
+    // padding-left: 0.8rem;
+    // text-align: right;
+  }
+  .highscoree{
+    display: inline;
+    font-size: 120%;
+    font-weight: 600;
+  }
+  .scoree, .highscoree{
+    text-transform: uppercase;
+  }
+}
+
+
+
 .score{
-   position: relative;
    text-align: center;
 
    font-size: 1.25rem;
@@ -25,24 +75,69 @@
 
 
 .controlbox{
-   width: 6rem;
-   height: 5rem;
-   p, .NextButton{display:inline-block;}
-   p{
-      font-size: 0.65rem;
-      margin-right: 0.3rem;
-   }
-   .NextButton{
-      height: 0.65rem; width: 0.65rem;
-      background-color: #7a71f4;
-      transform: rotate(45deg);
-   }
+  position: relative;
+  width: 6rem;
+  height: 5rem;
+  text-align: center;
+
+
+  .modes{
+    margin-top: 0.2rem;
+    margin-right: 0.1rem;
+    text-align: center;
+    p{
+      display: inline;
+      font-size: 0.5rem;
+      font-weight: 100;
+      color: $main-color;
+      color: $incorrect;
+      padding: 0 0.05rem;
+      &:not(.current-mode):hover{
+        font-size: 0.6rem;
+      }
+    }
+    .current-mode{
+      top: 0.3rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: $main-font;
+      // color: $highlights;
+      color: $main-color;
+    }
+  }
+
+  .start-button{
+    text-align: center;
+    border: $main-color solid 0.08rem;
+    border-radius: 1rem;
+    display: inline-block;
+    padding: 0 0.5rem 0.1rem; 
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+    h3{
+      padding-left: 0.1rem;
+      font-size: 0.7rem; 
+      letter-spacing: 0.2rem; 
+      margin-bottom: -0.15rem;
+    }
+    p{font-size: 0.4rem;}
+    &:hover{
+      border-width: 0.12rem;
+      h3{margin-top:-0.05rem }
+    }
+  }
+
+  .NextButton{
+    height: 0.65rem; width: 0.65rem;
+    background-color: $highlights;
+    transform: rotate(45deg);
+  }
 }
 .startstop{
    display: inline-block;
    height: 0.9rem;
    width: 0.9rem;
-   background-color: #7a71f4;
+   background-color: $highlights;
    border-radius: 50%;
    margin: 1.4rem 1.7rem;
    &.lrn{border-radius: 3px;}
@@ -51,19 +146,35 @@
 
 
 
-// .borderbox{
-//    width: 150px;
-//    height: 90px;
-//    float: left;
-//    position: relative;
+.borderbox{
+  position: absolute;
+  top:0;
+  height: 2.7rem;
+}
+.borderbox1{
+  border-right: $main-font solid 0.105rem;
+  border-right: #859 solid 0.105rem;
+  right:0;
+}
+.borderbox2{
+  border-left: #859 solid 0.105rem;
+  left: 0;
+}
+
+// toggle side borders for corner boxes
+// - - - - 
+// .borderboxx{
+//   position: absolute;
+//   bottom:0;
+//   width: 1rem;
+//   border-bottom: #859 solid 0.105rem;
 // }
-// .borderbox1{border-right: #859 solid 3px;
-//             margin-top: -89px;}
-// .borderbox2{border-left: #859 solid 3px;
-//             margin-top: -5px;
-//             width:3px;}
-
-
+// .borderboxx1{
+//   left:0;
+// }
+// .borderboxx2{
+//   right:0;
+// }
 
 
 
@@ -77,8 +188,10 @@
    box-sizing: border-box;
 }
 .toptimerbuffer{height: 1px;}
+
 .gameArea{
-   text-align: center;
+   display: flex;
+   justify-content: center;
    letter-spacing: 0.19rem;
    font-size:1.1rem;
    font-weight:700;
@@ -97,9 +210,9 @@
    }
 
 }
-.timerArea{
-   // height: 10px;
-}
+// .timerArea{
+//    // height: 10px;
+// }
 .timerholder{
    width:15rem; height:0.25rem;
    margin:auto;
@@ -108,23 +221,47 @@
 .timerbar{
    height:0.125rem; width:15rem;
    border-radius:3px;
-   background-color:#EF835F;
+   background-color:$timer;
 }
 
-span            {color: #92DACC;  font-weight:400; position: relative;}
-.currentWord    {color: #7a71f4;  font-weight:600;}
-.correctletter  {color: #92DACC;  font-weight:600;}
-.incorrectletter{color: #999;     font-weight:500;}
-.currentletter  {border-bottom: solid 0.16rem #7a71f4;}
+span            {color: $main-color;  font-weight:400;}
+.currentWord    {color: $highlights;  font-weight:600;}
+.correctletter  {color: $main-color;  font-weight:600;}
+.incorrectletter{color: $incorrect;     font-weight:500;}
+.currentletter  {border-bottom: solid 0.16rem $highlights;}
 
 
-.gameArea div div div{
-  position: absolute;
-  width: 55px;
-  height: 10px;
-  background-color: blue;
-  top: -10; left: 0;
+.lettersContainer{
+ & > div{
+   position: relative;
+   display: inline;
+ }
+ span {
+   position: relative;
+ }
+ div div:not(.timedBonus){
+//  div div{
+    position: absolute;
+    width: 0px;
+    height: 6px;
+    border-radius: 2.5px;
+    background-color: $timer;
+    top: -0.3rem; left: 0;
+ }
+ .timedBonus{
+   position: absolute;
+   top:-0.2.5rem;
+   left:0.1rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-right: 0.09rem;
+    border-radius: 50%;
+    background-color: $main-color;
+
+ }
+
 }
+
 
 
 .chancesholder{
@@ -136,7 +273,7 @@ span            {color: #92DACC;  font-weight:400; position: relative;}
       margin-right: 2.1rem;
       font-size: 0.45rem;
       letter-spacing: 0.45rem; word-spacing: 0.25rem;
-      color: #EF835F;
+      color: $timer;
       align-self: center;
    }
    div{ font-size: 0rem;}
@@ -150,7 +287,7 @@ span            {color: #92DACC;  font-weight:400; position: relative;}
    height:0.6rem;
    width:0.6rem;
    border-radius: 50%;
-   background-color:#92DACC;
+   background-color:$main-color;
    background-color:#9ce4d6;
    background-color:#a1e9db;
 }
@@ -160,13 +297,10 @@ span            {color: #92DACC;  font-weight:400; position: relative;}
    left: 0;
    height:0.6rem;
    width:0.6rem;
-   background-color: #FFF9ca;
+   background-color: $background;
    position: absolute;
 }
 
 
 
 
-
-
-//

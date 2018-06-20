@@ -5,8 +5,13 @@ article{
    padding-left: 0.4rem;
    display: block;
    font-size: 0.6rem;
+  // align-self: center ;
+  transition: all 3s;
 }
-
+.poop{
+  // align-self: flex-end;
+   margin: 2.9rem auto 2.2rem;
+}
 
 //each row of keys
 .keyboardrow{
@@ -52,8 +57,8 @@ figure{
    margin-left: -5%;
    background:
     linear-gradient(
-      rgba(255,249,202,0.1) 0%,
-      rgba(255,249,202,1) 50%
+      $background 0%,
+      $background 50%
     );
 }
 
@@ -65,7 +70,7 @@ figure{
    display: inline-block;
    padding: 0px;
    font-weight: 749;
-   border: #92DACC solid 0.08rem;
+   border: $main-color solid 0.08rem;
 }
 // f & j
 .keyboardrow .ring-70 , .keyboardrow .ring-74{
@@ -85,30 +90,30 @@ figure{
 // https://code.tutsplus.com/tutorials/css-fundamentals-css3-transitions--pre-10922
 
 .letter-stnd{
-   border-color: #92DACC ; background-color:#FFF9ca  ; color:#624D74 ;
+   border-color: $main-color ; background-color:$background  ; color:$main-font ;
    transition: all 0s;
-   &.pressed{ background-color: #92DACC;}
+   &.pressed{ background-color: $main-color;}
    &:not(.pressed){ transition: background-color 0.8s;}
 }
 .letter-appear{
-   border-color: #92DACC ; background-color:#FFF9ca  ; color:#FFF9ca ;
-   &.pressed{border-color:#92DACC ; background-color:#FFF9ca ; color:#624D74;}
-   // &.pressed{border-color:#92DACC ; background-color:#92DACC ; color:#624D74;}  with color
+   border-color: $main-color ; background-color:$background  ; color:$background ;
+   &.pressed{border-color:$main-color ; background-color:$background ; color:$main-font;}
+   // &.pressed{border-color:$main-color ; background-color:$main-color ; color:$main-font;}  with color
    &:not(.pressed){ transition: border-color 0.6s , background-color 0.6s , color 0.6s;}
 }
 
 .letter-stnd[name='off'] , .letter-appear[name='off'] {
-   border-color: #FFF9ca ; background-color:#FFF9ca  ; color:#FFF9ca ;
-   &.pressed{ border-color: #92DACC;}
+   border-color: $background ; background-color:$background  ; color:$background ;
+   &.pressed{ border-color: $main-color;}
    &:not(.pressed){ transition: border-color 0.6s , background-color 0.6s , color 0.6s;}
 }
 
 
 .letter-32{
-   // background-color: #FFF9CA;
-   border-color: #FFF9CA;
-   // &.pressed{ background-color: #92DACC;}
-   &.pressed{ border-color: #92DACC;}
+   // background-color: $background;
+   border-color: $background;
+   // &.pressed{ background-color: $main-color;}
+   &.pressed{ border-color: $main-color;}
    // &:not(.pressed){ transition: background-color 0.8s}
    &:not(.pressed){ transition: border-color 0.8s}
 }

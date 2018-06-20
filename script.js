@@ -4,8 +4,25 @@ $( document ).ready(function() {
 
    updateScore();
 
+// $('img').fadeIn(5000)
+
+$('.splash-screen > img').addClass('logo-bottom-right')
+
+setTimeout(function(){
+      $('.first-instructions-box').removeClass('hidden');
+},3500)
+setTimeout(function(){
+      $('.first-instructions-box').addClass('new-color');
+},3600)
+
+$('.first-instructions-box div').click(function(){
+      $('.first-instructions-box').remove();
+      $('.splash-screen').addClass('splash-screen-gone')
+})
 
 
+$('.splash-screen').click(function(){
+})
 
    $('#illuminatetoggle').click(function (){
       $('.letter-stnd').toggleClass('letter-appear');
@@ -42,13 +59,17 @@ $( document ).ready(function() {
       toLearnModePlay();
    });
 
-
+      $('.start-button').click(function () {
+            if (learnMode) { toLearnModePlay(); }
+            if (sprintMode) { toSprintModePlay();}
+            
+      });
 
    $(document).keydown(function (event) {
       var letterCode = event.which;
       $('.letter-'+letterCode).addClass('pressed');
 
-      if (inPlay && ((letterCode>64 && letterCode<91) || letterCode== 32 ) ){
+      if (inPlay && ((letterCode>64 && letterCode<91) || letterCode== 32 || letterCode==13) ){
          checkLetter(letterCode);
       }
       else if (letterCode == 13){startGame();}
@@ -63,10 +84,10 @@ $( document ).ready(function() {
 
 
    $('.btn1').click(function(){
-      RemoveAllLetters();
+         $('article').addClass('poop')
    })
    $('.btn2').click(function(){
-      $('.timerbar').addClass('hidden');
+         console.log(currentWordIsTimed)
    })
    $('.btn3').click(function(){
       AddAllLetters();
@@ -75,7 +96,7 @@ $( document ).ready(function() {
       addLetters(8);
    })
    $('.btn5').click(function(){
-      addLetters(-5);
+         console.log(learnMode)
    })
 
 

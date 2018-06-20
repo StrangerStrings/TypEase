@@ -9,7 +9,9 @@ function toLearnModePlay(){
       timeleft = 1000;
       MainLoop.start();
    }
+   console.log('ff')
 }
+
 
 function toLearnModeText(){
 
@@ -31,6 +33,7 @@ function toLearnModeText(){
 
 }
 
+
 function learnLevelUp(){
    learnSubLevel ++;
    if (learnSubLevel > learnLevels[learnLevel].length){
@@ -38,6 +41,10 @@ function learnLevelUp(){
       learnSubLevel = 1;
    }
 }
+
+
+
+
 
 
 function loadLevelData (level){

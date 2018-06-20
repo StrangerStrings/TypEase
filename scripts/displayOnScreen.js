@@ -13,8 +13,6 @@ function hideChances(){
 }
 function drawRechargingChance(){
       $('.chanceblocker').css({'height': 0.6 * (100-chanceRecharge) / 100 +'rem'});
-      // $('.chanceblocker').css({'height': 0.5 * chanceRecharge +'rem'});
-      // $('.chanceblocker').css({'height': 0.5  +'rem'});
 }
 
 
@@ -27,20 +25,18 @@ function updateScore(){
 
 
 function lettersOnScreen(){
-//    console.log(answerLetters);
-   // $('span').text('');
+   $('span').text('');
    for (i = 0; i < answerLetters.length; i++){
-    for(j = 0; j < answerLetters[i].length; j++){
-        // $('.span'+i+j).text(answerLetters[i][j].toLowerCase());
-        console.log('poo')
+         for(j = 0; j < answerLetters[i].length; j++){
+        $('.span'+i+j).text(answerLetters[i][j].toLowerCase());
       }
       if (timedWordBools[i]){
-            // add together the lengths of all the letters
-            // something like : for(j){ wordWidth += span+i+j .width }
-
-            // then set the width of the div that's attached to each span+i+0 to this.
-            // It's already 'showing', it's just it's width is zero.
-            // absolutely mess with css
+            var w = 0
+            for (var k = 0; k < 10 ; k++){
+                  w += $('.span'+i+k).width();
+            }
+            timedWordWidth = w - 8
+            $('.timedWordBar'+i).width(timedWordWidth)
       }
     }
 }

@@ -2,9 +2,13 @@ function toSprintModePlay(){
 
    inPlay = true;
    $('.sprintText').html('');
-
    newSentence();
+
+//    timeleft = 2000;
    MainLoop.start();
+
+   $('.start-button').addClass('hidden')
+   console.log('fart' + timeSpeed)
 }
 
 function toSprintModeText(){
@@ -29,6 +33,8 @@ function toSprintModeText(){
    draw();
    $('.timerbar').removeClass('hidden');
 
+   $('.start-button').removeClass('hidden')
+
 }
 
 
@@ -43,12 +49,12 @@ function toSprintModeText(){
 
 function decideIfChangeLetters(){
    // if (GameLevel > BeforeGameLevel){
-      BeforeGameLevel = GameLevel;
+      // BeforeGameLevel = GameLevel;
       vaar = Math.random();
       if (vaar < 0.2){console.log('donothing()');}
       else if (vaar < 0.9){howManyChangeLetters();}
-      else {console.log('StartSets()');}
-      // else {StartSets();}
+      // else {console.log('StartSets()');}
+      else {StartSets();console.log('startSets')}
    // }
 }
 
@@ -60,7 +66,7 @@ function howManyChangeLetters(){
    ActualLetters = Math.floor(Math.random()*(Math.min(3+GameLevel/2,5))+(Math.min(6,Math.max(1,GameLevel/2))));
    if (ActualLetters > (5.9 + (GameLevel/70) ) ){ActualLetters = 13};
    ActualLetters *= 2;
-   console.log(ActualLetters);
+//    console.log(ActualLetters);
    ChangeLetters();
 }
 
@@ -98,7 +104,7 @@ function addLetters(letters){
       con1Length = OnCon1Array.length;
       con1Lengthcalc = Math.max(1,OnCon1Array.length);
       addOrRemove = -1;
-      console.log('removing');
+      // console.log('removing');
       letters *= -1
    }else{
       vowelLength = OffVowelArray.length;
@@ -108,7 +114,7 @@ function addLetters(letters){
       con1Length = OffCon1Array.length;
       con1Lengthcalc = Math.max(1,OffCon1Array.length);
       addOrRemove = 1;
-      console.log('adding');
+      // console.log('adding');
    }
 
 
@@ -120,7 +126,7 @@ function addLetters(letters){
    if(var5 > letters){var5 = letters;}
    if(var5 > vowelLength){var5 = vowelLength;}
    if(var5 < 0){var5 = 0;}
-   console.log('numberOfVowels: '+ addOrRemove*var5);
+//    console.log('numberOfVowels: '+ addOrRemove*var5);
 
    car1 = Math.random();
    car2 = car1 * letters;
@@ -130,11 +136,11 @@ function addLetters(letters){
    if(car5 < 0){car5 = 0;}
    if(car5 > con2Length){car5 = con2Length;}
    if(car5 > (letters - var5)){car5 = (letters - var5);}
-   console.log('numberOfCon2s: '+ addOrRemove*car5);
+//    console.log('numberOfCon2s: '+ addOrRemove*car5);
 
    bar1 = letters - car5 - var5;
    if(bar1 > con1Length){bar1 = con1Length;}
-   console.log('numberOfCon1s: '+ addOrRemove*bar1);
+//    console.log('numberOfCon1s: '+ addOrRemove*bar1);
 
    AddVowels(var5 * addOrRemove);
    AddCon2s(car5 * addOrRemove);
@@ -145,13 +151,13 @@ function AddVowels(amount){
    if (amount < 0){
       for (i = 0; i < -amount; i++) {
          vr1 = OnVowelArray.splice(Math.floor(Math.random()*OnVowelArray.length), 1).toString();
-         console.log(vr1);
+      //    console.log(vr1);
          turnOffLetter(vr1);
          OffVowelArray.push(vr1);}}
    else{
       for (i = 0; i < amount; i++) {
          vr1 = OffVowelArray.splice(Math.floor(Math.random()*OffVowelArray.length), 1).toString();
-         console.log(vr1);
+      //    console.log(vr1);
          turnOnLetter(vr1);
          OnVowelArray.push(vr1);
 }}}
@@ -161,13 +167,13 @@ function AddCon2s(amount){
       for (i = 0; i < -amount; i++) {
          vr1 = OnCon2Array.splice(Math.floor(Math.random()*OnCon2Array.length), 1).toString();
          turnOffLetter(vr1);
-         console.log(vr1);
+      //    console.log(vr1);
          OffCon2Array.push(vr1);}}
    else{
       for (i = 0; i < amount; i++) {
          vr1 = OffCon2Array.splice(Math.floor(Math.random()*OffCon2Array.length), 1).toString();
          turnOnLetter(vr1);
-         console.log(vr1);
+      //    console.log(vr1);
          OnCon2Array.push(vr1);
 }}}
 
@@ -176,13 +182,13 @@ function AddCon1s(amount){
       for (i = 0; i < -amount; i++) {
          vr1 = OnCon1Array.splice(Math.floor(Math.random()*OnCon1Array.length), 1).toString();
          turnOffLetter(vr1);
-         console.log(vr1);
+      //    console.log(vr1);
          OffCon1Array.push(vr1);}}
    else{
       for (i = 0; i < amount; i++) {
          vr1 = OffCon1Array.splice(Math.floor(Math.random()*OffCon1Array.length), 1).toString();
          turnOnLetter(vr1);
-         console.log(vr1);
+      //    console.log(vr1);
          OnCon1Array.push(vr1);
 }}}
 
@@ -194,54 +200,7 @@ function AddCon1s(amount){
 
 
 
-//
-// function StartSets(){
-//    RemoveAllLetters();
-//    OffSetOfSets = SetOfSetsReference;
-//    SetsBool = true;
-//    AddRandomSet();
-// }
-//
-// function CarryOnSets(){
-//    rrrand = Math.rand();
-//    if (rrrand < ( -0.15 + ( (3-NumberOfSets) * (0.3 + (GameLevel * 0.01)) )  ) ){
-//       AddRandomSet();
-//    }else{SetsBool = false;}
-// }
-//
-// function AddRandomSet(){
-//    NumberOfSets++;
-//
-//    raand = Math.floor(Math.random()*OffSetOfSets.length);
-//    ChosenSet = OffSetOfSets[raand];
-//    OffSetOfSets.splice(raand, 1);
-//    tempArray = [];
-//
-//    for (i = 0;  i < ChosenSet[0].length; i++) {
-//       setletter = ChosenSet[0][i];
-//       var index = OffVowelArray.indexOf(setletter);
-//       OffVowelArray.splice(index, 1);
-//       OnVowelArray.push(setletter);
-//       turnOnLetter(setletter);
-//       tempArray.push(setletter);
-//    }
-//    for (i = 0;  i < ChosenSet[1].length; i++) {
-//       setletter = ChosenSet[0][i];
-//       var index = OffCon2Array.indexOf(setletter);
-//       OffCon2Array.splice(index, 1);
-//       OnCon2Array.push(setletter);
-//       turnOnLetter(setletter);
-//       tempArray.push(setletter);
-//    }
-//    for (i = 0;  i < ChosenSet[2].length; i++) {
-//       setletter = ChosenSet[0][i];
-//       var index = OffCon2Array.indexOf(setletter);
-//       OffCon2Array.splice(index, 1);
-//       OnCon2Array.push(setletter);
-//       turnOnLetter(setletter);
-//       tempArray.push(setletter);
-//    }
-//    OnSetofSets.push(tempArray);
-// }
-//
-//
+
+
+
+

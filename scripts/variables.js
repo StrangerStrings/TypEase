@@ -10,9 +10,9 @@ var wrongAttempts = 0;
 
 var score = 0 ;
 var highscore = 0 ;
-var timeleft;
+var timeleft =1000;
 var minicounter = 0;
-var GameLevel = 0;
+var GameLevel = 4;
 var BeforeGameLevel = 0;
 
 var timeSpeed           =  4
@@ -48,16 +48,19 @@ var sprintMode = true;
 
 
 var timedWordBools = [false, false, false, false, false, false, false, false, false,]
-var timedWordIndex = undefined;
 var currentWordIsTimed = false
-var TimedWordSpeed = 0
+var timedWordTotalSize = 0
+var timedWordSize = 0
+var timedWordWidth = 0
 
 
 
+var allLettersArray = []
 
-var OnVowelArray = ['a','e','i','o','u'];
-var OnCon1Array = ['w','r','t','p','s','d','f','g','h','k','l','c','b','n','m'];
-var OnCon2Array = ['q','y','j','z','x','v'];
+var OnVowelArray = ['a', 'e', 'i', 'o', 'u'];
+var OnCon1Array = ['w', 'r', 't', 'p', 's', 'd', 'f', 'g', 'h', 'k', 'l', 'c', 'b', 'n', 'm'];
+var OnCon2Array = ['q', 'y', 'j', 'z', 'x', 'v']; 
+
 
 var OffVowelArray = [];
 var OffCon2Array  = [];

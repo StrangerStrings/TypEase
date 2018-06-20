@@ -14,7 +14,11 @@ MainLoop.setUpdate(updategame).setDraw(draw).setSimulationTimestep(60);
 
 function updategame(){
 
+    // console.log('word timed =  '+currentWordIsTimed)
+
    timeleft -= timeSpeed;
+
+
 
    minicounter ++;
    if (minicounter > 130){
@@ -40,9 +44,9 @@ function updategame(){
    }
 
    if(currentWordIsTimed){
-       // something about size decreasing of the timer bar
-       // redraw this on the relevant one (may need the twBools for index)
-       // check if it's zero and if it is then turn the bools off.
+       timedWordSize --;   
+       var w = (timedWordSize / timedWordTotalSize) * timedWordWidth
+       $('.timedWordBar' + wordCounter).css({"width":w,"margin-left":timedWordWidth-w});
    }
 
    if (timeleft <=0){

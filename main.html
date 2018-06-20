@@ -11,6 +11,8 @@
 <script src="scripts/learnLevels.js"></script>
 <script src="scripts/displayOnScreen.js"></script>
 <script src="scripts/addRemoveLetters.js"></script>
+<script src="scripts/actualWords.js"></script>
+<script src="scripts/sets.js"></script>
 <script src="scripts/SentenceGeneration.js"></script>
 <script src="scripts/loopFunctions.js"></script>
 <script src="scripts/sprint.js"></script>
@@ -23,15 +25,41 @@
 <body>
 
 
+<div class="whole-thing">
 
+<!-- <div class="splash-screen">
 
+      <div class='first-instructions-box hidden'>
+            <img src="images/diagrams2.png" alt="">
+            <p>The TypEase way is to not look whilst typing.</p>
+            <p>To make sure you must not be able to see the keys.</p>
+            <p>Either put your hands and board inside a sturdy top as shown, 
+            <p>or have the keyboard facing slightly away.</p>
+            <div>continue</div>     
+      </div>
+      
+      <img src="images/logo2.png" class="">      
+        
+</div> -->
 
-
-
+<img src="images/logo2.png" class="logo-bottom-right">
    <div class="topcontainer">
+
       <div class="scorebox">
-         <div class="score"></div>
+
+         <!-- <div class="score"></div> -->
+
+         <!-- <div class="learnbox-left">
+               <div class="button-learn-left"></div><h4>1.1</h4><div class="button-learn-right"></div>
+         </div> -->
+
+         <div class="playbox-left">
+               <div class='scoree'>a</div>
+               <div class='highscore-is'>best : <div class='highscoree'>c</div></div>
+         </div>
+
          <div class="borderbox borderbox1 "></div>
+         <div class="borderboxx borderboxx1 "></div>
       </div>
 
 
@@ -41,24 +69,24 @@
          <div class="gameArea">
             <p class="infoText"></p>
             <p class="sprintText"></p>
-            <div>
-            <span class='span00'>d</span><span class='span01'></span><span class='span02'></span><span class='span03'></span><span class='span04'></span><!--
-         --><span class='span05'></span><span class='span06'></span><span class='span07'></span><span class='span08'></span><span class='span09'></span><!--
-         --><span class='span10'></span><span class='span11'></span><span class='span12'></span><span class='span13'></span><span class='span14'></span><!--
-         --><span class='span15'></span><span class='span16'></span><span class='span17'></span><span class='span18'></span><span class='span19'></span><!--
-         --><span class='span20'></span><span class='span21'></span><span class='span22'></span><span class='span23'></span><span class='span24'></span><!--
-         --><span class='span25'></span><span class='span26'></span><span class='span27'></span><span class='span28'></span><span class='span29'></span><!--
-         --><span class='span30'></span><span class='span31'></span><span class='span32'></span><span class='span33'></span><span class='span34'></span><!--
-         --><span class='span35'></span><span class='span36'></span><span class='span37'></span><span class='span38'></span><span class='span39'></span><!--
-         --><span class='span40'></span><span class='span41'></span><span class='span42'></span><span class='span43'></span><span class='span44'></span><!--
-         --><span class='span45'></span><span class='span46'></span><span class='span47'></span><span class='span48'></span><span class='span49'></span><!--
-         --><span class='span50'></span><span class='span51'></span><span class='span52'></span><span class='span53'></span><span class='span54'></span><!--
-         --><span class='span55'></span><span class='span56'></span><span class='span57'></span><span class='span58'></span><span class='span59'></span><!--
-         --><span class='span60'></span><span class='span61'></span><span class='span62'></span><span class='span63'></span><span class='span64'></span><!--
-         --><span class='span65'></span><span class='span66'></span><span class='span67'></span><span class='span68'></span><span class='span69'></span><!--
-         --><span class='span70'></span><span class='span71'></span><span class='span72'></span><span class='span73'></span><span class='span74'></span><!--
-         --><span class='span75'></span><span class='span76'></span><span class='span77'></span><span class='span78'></span><span class='span79'></span>
-         </div>
+            <div class=lettersContainer>
+               <div><span class="span00"></span><div class="timedWordBar0"></div></div><div><span class="span01"></span></div><div><span class="span02"></span></div><div><span class="span03"></span></div><div><span class="span04"></span></div><!--
+            --><div><span class="span05"></span></div><div><span class="span06"></span></div><div><span class="span07"></span></div><div><span class="span08"></span></div><div><span class="span09"></span></div><!--
+            --><div><span class="span10"></span><div class="timedWordBar1"></div></div><div><span class="span11"></span></div><div><span class="span12"></span></div><div><span class="span13"></span></div><div><span class="span14"></span></div><!--
+            --><div><span class="span15"></span></div><div><span class="span16"></span></div><div><span class="span17"></span></div><div><span class="span18"></span></div><div><span class="span19"></span></div><!--
+            --><div><span class="span20"></span><div class="timedWordBar2"></div></div><div><span class="span21"></span></div><div><span class="span22"></span></div><div><span class="span23"></span></div><div><span class="span24"></span></div><!--
+            --><div><span class="span25"></span></div><div><span class="span26"></span></div><div><span class="span27"></span></div><div><span class="span28"></span></div><div><span class="span29"></span></div><!--
+            --><div><span class="span30"></span><div class="timedWordBar3"></div></div><div><span class="span31"></span></div><div><span class="span32"></span></div><div><span class="span33"></span></div><div><span class="span34"></span></div><!--
+            --><div><span class="span35"></span></div><div><span class="span36"></span></div><div><span class="span37"></span></div><div><span class="span38"></span></div><div><span class="span39"></span></div><!--
+            --><div><span class="span40"></span><div class="timedWordBar4"></div></div><div><span class="span41"></span></div><div><span class="span42"></span></div><div><span class="span43"></span></div><div><span class="span44"></span></div><!--
+            --><div><span class="span45"></span></div><div><span class="span46"></span></div><div><span class="span47"></span></div><div><span class="span48"></span></div><div><span class="span49"></span></div><!--
+            --><div><span class="span50"></span><div class="timedWordBar5"></div></div><div><span class="span51"></span></div><div><span class="span52"></span></div><div><span class="span53"></span></div><div><span class="span54"></span></div><!--
+            --><div><span class="span55"></span></div><div><span class="span56"></span></div><div><span class="span57"></span></div><div><span class="span58"></span></div><div><span class="span59"></span></div><!--
+            --><div><span class="span60"></span><div class="timedWordBar6"></div></div><div><span class="span61"></span></div><div><span class="span62"></span></div><div><span class="span63"></span></div><div><span class="span64"></span></div><!--
+            --><div><span class="span65"></span></div><div><span class="span66"></span></div><div><span class="span67"></span></div><div><span class="span68"></span></div><div><span class="span69"></span></div><!--
+            --><div><span class="span70"></span><div class="timedWordBar7"></div></div><div><span class="span71"></span></div><div><span class="span72"></span></div><div><span class="span73"></span></div><div><span class="span74"></span></div><!--
+            --><div><span class="span75"></span></div><div><span class="span76"></span></div><div><span class="span77"></span></div><div><span class="span78"></span></div><div><span class="span79"></span></div><!--
+            --></div>
       </div>
          <div class="timerArea">
             <div class="chancesholder">
@@ -85,17 +113,28 @@
 
 
       <div class="controlbox">
-         <p class="lrn hidden">Learn</p><div class="nextButton lrn hidden" name="toSprint"></div>
+            <div class="modes">
+                  <p class="learn">learn</p><p class="sprint current-mode">play</p>
+            </div>
+            <div class='start-button'>
+                  <h3>start</h3>
+                  <p>(enter)</p>
+            </div>
+            <div class="borderbox borderbox2"></div>
+            <div class="borderboxx borderboxx2"></div>
+
+
+         <!-- <p class="lrn hidden">Learn</p><div class="nextButton lrn hidden" name="toSprint"></div>
          <div class="nextButton  spr" name="toLearn"></div><p class=' spr'>Sprint</p>
          <div class="startstop lrn hidden"></div>
-         <div class="startstop spr "></div>
+         <div class="startstop spr "></div> -->
          <div class="borderbox borderbox2"></div>
       </div>
    </div>
 
 
 
-
+<div class="buffer1"></div>
 
 
 
@@ -144,6 +183,10 @@
 
 
 
+<div class="buffer2"></div>
+
+
+
 
 
    <div id="bottomcontainer">
@@ -152,7 +195,7 @@
 
 
             <div class='button btn1'>R-All</div>
-            <div class='button btn2' ></div>
+            <div class='button btn2' >cwit</div>
             <div class='button btn3' >A-All</div>
             <div class='button btn4' >add 8</div>
             <div class='button btn5' >rem 5</div>
@@ -193,6 +236,7 @@
       <label><input type="checkbox" name="bnm">
       <div class="togglebutton"></div></label> -->
 
-   </containter>
+   </div>
 
+</div>
 </body>

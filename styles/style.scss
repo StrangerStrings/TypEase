@@ -1,23 +1,126 @@
+@import "styles/settings/settings1";
 @import "styles/top";
 @import "styles/keyboard";
+
 
 html{
    font-size: 2em;
 }
 *{
-   padding:0;
+   padding:0rem;
    margin: 0;
    box-sizing: border-box;
 }
 body{
-   background-color: #FFF9ca;
-   color: #624D74;
+   background-color: $background;
+   color: $main-font;
    font-family: arial , sans-serif;
    font-size: 1em;  /*responsive  34px;*/
    font-weight: 500;
 }
 
 .hidden{display:none !important;}
+
+.whole-thing{
+    width: 100%;
+    height: 100%;
+    min-width: 10rem;
+    min-height: 10rem;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between; 
+}
+.buffer1{
+    flex-grow: 1;
+}
+.buffer2{
+    flex-grow: 5;
+}
+
+
+.splash-screen{
+    position: absolute;
+    background-color: $background;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    display: flex;
+    // display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 2s 1.5s;
+
+    > img{
+        position: absolute;
+        bottom: 45%;
+        left:25%;
+        width:50%;
+        transition: all 2s 1s;
+    }
+    .logo-bottom-right{
+    width:14%;
+    bottom: 3.5%;
+    left: 2%;
+    }
+    &.splash-screen-gone{
+        opacity: 0;
+    }
+}
+
+.first-instructions-box{
+    text-align: center;
+    img{
+        width:35rem;
+        margin-bottom: 1rem;
+    }
+    p{
+        line-height: 155%;
+        word-spacing: 0.15rem;
+        font-size: 75%;
+        color: $background;
+        transition: all 1s 2s;
+    }
+    div{
+    text-align: center;
+    border: $background solid 0.08rem;
+    border-radius: 1rem;
+    display: inline-block;
+    letter-spacing: 0.1rem;
+    padding: 0 0.9rem 0.1rem; 
+    margin-top: 1.5rem;
+    box-sizing: border-box;
+    color: $highlights;
+        color: $background;
+        transition: all 1s 6s;
+        
+    &:hover{
+      border-width: 0.12rem;
+     }
+    }
+
+    &.new-color{
+        p{color:$main-font}
+        div{
+            color:$highlights;
+            border-color: $main-color;
+        }
+    }
+
+    padding-bottom: 1.5rem;
+}
+
+
+
+
+
+
+.whole-thing > img{
+    position: absolute;
+    width:14%;
+    bottom: 3.5%;
+    left: 2%;
+}
 
 
 
@@ -26,10 +129,10 @@ body{
    width:28px;
    height: 28px;
    margin-left: 8px;
-   background-color: #92DACC;
+   background-color: $main-color;
 }
 .togglebutton ,#illuminatetoggle {
-   border: solid 5px #92DACC;
+   border: solid 5px $main-color;
    border-radius: 19px;
 }
 
@@ -37,14 +140,14 @@ body{
    width:46px;
    height: 28px;
    margin-right: 25px;
-   background-color: #92DACC;
+   background-color: $main-color;
 }
 
 
 
 .button{
    height:50px; width:50px;
-   border:solid 3px #7a71f4;
+   border:solid 3px $highlights;
    border-radius:0.3em;
    margin:6px;
    font-size: 0.5rem;
@@ -113,6 +216,6 @@ input[type="checkbox"]{
 
 
 #FFF9ca
-#92DACC
+$main-color
 #4A73B1
 */

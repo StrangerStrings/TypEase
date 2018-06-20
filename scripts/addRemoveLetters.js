@@ -17,7 +17,6 @@ function RemoveAllLetters(){
    OffCon2Array  =  ['q','y','j','z','x','v'];
    OffCon1Array  =  ['w','r','t','p','s','d','f','g','h','k','l','c','b','n','m'];
    $('.letter-stnd').attr('name','off');
-   // $('.specialring').css({'border-color': '#92DACC'});
 }
 
 
@@ -30,7 +29,6 @@ function AddAllLetters(){
    OnCon2Array  =  ['q','y','j','z','x','v'];
    OnCon1Array  =  ['w','r','t','p','s','d','f','g','h','k','l','c','b','n','m'];
    $('.letter-stnd').attr('name','');
-   // $('.specialring').css({'border-color': '#7a71f4'});
 }
 
 
@@ -38,19 +36,13 @@ function AddAllLetters(){
 
 
 function turnOffLetter (lettter){
-   lettterr = lettter.toUpperCase();
-   lettterrr = lettterr.charCodeAt(0);
-   $('.letter-'+lettterrr).attr('name','off');
-
-   $('.specialring'+lettterrr).css({'border-color': '#92DACC'});
+    lettter = lettter.toUpperCase().charCodeAt(0);
+   $('.letter-'+lettter).attr('name','off');
 }
 
 
 
 function turnOnLetter (lettter){
-   lettterr = lettter.toUpperCase();
-   lettterrr = lettterr.charCodeAt(0);
-   $('.letter-'+lettterrr).attr('name','');
-
-   $('.specialring.ring'+lettterrr).css({'border-color': '#7a71f4'});
+    lettter = lettter.toUpperCase().charCodeAt(0);
+   $('.letter-'+lettter).attr('name','');
 }

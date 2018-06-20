@@ -39,26 +39,39 @@ function sectenceGenerator(){
    vowelLength = OnVowelArray.length;
    con1Length = OnCon1Array.length;
    con2Length = OnCon2Array.length;
+    allLettersArray = OnVowelArray.concat(OnCon1Array,OnCon2Array)
+
 
    var noOfWords = Math.floor(Math.random()*6)+2;
    // var noOfWords = howManyWords();
-
-    if (sprintMode && Math.random() > 0) {  //change to incoporate level
-        var whichWord = Math.floor(Math.random()*(noOfWords-1)) +1;        
-        timedWordBools[whichWord] = true
-        // console.log('noOfWords: '+noOfWords+'   whichWord: '+whichWord)
-    }
 
    for (i = 0; i < noOfWords; i++) {
       var word = wordGenerator();
       word.push(' ');
       arr[i] = word;
-    //   if(sprintMode){assignTimedWord();}
-      if(sprintMode && timedWordBools.indexOf(true)==-1){
+      if (timedWordBools[i]){
+          //i'd like to make this dependant on more
 
       }
    }
    arr[noOfWords-1].pop();
+
+    if (sprintMode && noOfWords > 2 && Math.random() > 0) {  //change to incoporate level in the number random must be greater than
+        var whichWord = Math.floor(Math.random() * (noOfWords - 2)) + 1;
+        if(arr[whichWord].length < 4){
+            whichWord = Math.floor(Math.random() * (noOfWords - 2)) + 1;
+            if (arr[whichWord].length < 4) {
+                whichWord = Math.floor(Math.random() * (noOfWords - 2)) + 1;
+            }
+        }
+        if(arr[whichWord].length > 4){
+            timedWordBools[whichWord] = true
+            timedWordTotalSize =
+                (arr[whichWord].length * 15) + (Math.floor(Math.random() * 50));
+            timedWordSize = parseInt(timedWordTotalSize);
+        }
+    }
+
    answerLetters = arr;
 }
 
@@ -80,9 +93,25 @@ vcProbability is reset at begining of each word (vowel-constonant probabilty)
 function wordGenerator(){
    vcProbability = 0.35;
    var ar = [];
-   var noOfLetters = Math.floor(Math.random()*8)+1;   //relate this 8 to the gameLevel
-      // var noOfLetters = howManyLetters();
-   // //Add random letter
+    var noOfLetters = Math.floor(Math.random() * 8) + 1;   //relate this 8 to the gameLevel
+   // var noOfLetters = howManyLetters()
+      
+    if(true && noOfLetters>1){
+        var AWarr = actualWords[noOfLetters]
+        for(var b=0; b<10 ;b++){
+            var woord = AWarr[Math.floor(Math.random() * AWarr.length)]
+            var allLettersAreAvailable = true;
+            for(var a = 0; a < woord.length ;a++){
+                if(allLettersArray.indexOf(woord[a]) == -1){
+                    allLettersAreAvailable = false
+                }
+            }
+            if (allLettersAreAvailable){
+                // console.log('worked  '+i)
+                return(JSON.parse(JSON.stringify(woord)))
+            }
+        }
+    }
    // if (randomLetterBool == true){
    //    for (j = 0; j < noOfLetters; j++) {
    //       var rand = Math.floor(Math.random()*AllOnLetters.length);

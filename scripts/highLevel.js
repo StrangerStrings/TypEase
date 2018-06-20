@@ -1,15 +1,14 @@
 
 
 function sentenceFinished(){
-   // if (SetsBool ==  true){CarryOnSets();}
-   // if (SetsBool == false){decideIfChangeLetters();}
+//    if (SetsBool ==  true){CarryOnSets();}
+//    if (SetsBool == false){decideIfChangeLetters();}
    if (sprintMode == true){
       howManyChangeLetters();
    }
 
    if (learnMode == true){
       sentencesLeft --;
-      console.log(sentencesLeft);
       if (sentencesLeft == 0){
          learnLevelUp();
          toLearnModeText();
@@ -30,20 +29,30 @@ function startGame(){
 
 
 function checkLetter(letterCode){
-   if (letterCode == 13){sentenceFinished();return;}
+   if (letterCode == 13){sentenceFinished();console.log('j');return;}
+
+   if (letterCounter == 0 && timedWordBools[wordCounter]) {
+         currentWordIsTimed = true;
+   }
+
+   //correct answer
    if (String.fromCharCode(letterCode).toLowerCase() == answerLetters[wordCounter][letterCounter]){
       score++;
-      updateScore();
-      addCorrectLetter();
-      nextLetter();  //letter counter increases
       timeleft += letterReward;
-      
-      if(letterCounter==1 && timedWordBools[wordCounter]){
-            currentWordIsTimed == true;
-            console.log('timed start now')
-      }
+      updateScore();
 
+      addCorrectLetter();
+      nextLetter();
+
+
+   //incorrect answer
    } else {
+      if (currentWordIsTimed) {
+            currentWordIsTimed = false
+            timedWordBools[wordCounter] = false;
+            $('.timedWordBar' + (wordCounter)).css({ "width": 0, "margin-left": 0 });
+            console.log('nono')
+      }
       addIncorrectLetter()
       nextLetter();
       if (chancesLeft == 0){
@@ -56,21 +65,34 @@ function checkLetter(letterCode){
          chancesLeft --;
          redrawChances();
       }
+
+
    }
 
+   //timedWord success
+   if (currentWordIsTimed && letterCounter == (answerLetters[wordCounter].length-1)) {
+         currentWordIsTimed = false;
+         timedWordBools[wordCounter] = false;
+         $('.timedWordBar' + (wordCounter)).animate(
+               { "width": 0, "margin-left": (timedWordWidth) },200)
 
+         $('.span' + wordCounter + (letterCounter - 1)).finish();
+        $('.span' + wordCounter + (letterCounter - 1)).after('<div class="timedBonus"></div>')
+         $('.timedBonus').animate({ top: '-1.9rem', width: '1rem', height: '1rem' }, 150).animate(
+               { top: '-0.3rem', width: '0rem', height: '0rem'}, 350).animate(
+                     { width: '0.4rem'},50,function(){
+                        $('.timedBonus').remove();
+               });
+   }
+
+   //end of word
    if(letterCounter == answerLetters[wordCounter].length){
       removeCurrentWordClass();
       letterCounter = 0;
       wordCounter ++;
       timeleft += wordReward;
-      if (currentWordIsTimed){
-            // animation for little ball (abs div over 2nd last letter)
-            // set size to zero, redraw, maybe just the redraw..
-            // point bonus
-            // relevant Bools == false
-      }
 
+      //end of sentence
       if(wordCounter == answerLetters.length){
          setTimeout(sentenceFinished,260);
          timeleft += SentenceReward;
