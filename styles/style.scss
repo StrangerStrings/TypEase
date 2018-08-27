@@ -1,4 +1,4 @@
-@import "styles/settings/settings1";
+@import "styles/settings1";
 @import "styles/top";
 @import "styles/keyboard";
 
@@ -49,8 +49,7 @@ body{
     // display: none;
     justify-content: center;
     align-items: center;
-    transition: opacity 2s 1.5s;
-
+    transition: opacity 2s 1.5s, visibility 0s 3.5s;
     > img{
         position: absolute;
         bottom: 45%;
@@ -63,10 +62,21 @@ body{
     bottom: 3.5%;
     left: 2%;
     }
+    .fast-trans{
+        transition: opacity 0.5s 0s, visibility 0s 3.5s;
+    }
     &.splash-screen-gone{
         opacity: 0;
+        // display: none;
+        visibility: hidden;
     }
 }
+
+.fast-trans{
+        transition: opacity 1s 0.5s, visibility 0s 1s; 
+    }
+
+
 
 .first-instructions-box{
     text-align: center;
@@ -95,6 +105,7 @@ body{
         transition: all 1s 6s;
         
     &:hover{
+    cursor:pointer;
       border-width: 0.12rem;
      }
     }
@@ -111,11 +122,79 @@ body{
 }
 
 
+.info-page{
+    position: absolute;
+    overflow: hidden;
+    z-index:6;
+    transition: all 1s;
+    
+    background-color: $background;
+    border-radius: 2%;
+    
+    right: 3%;
+    bottom: 3%;
+    height: 1.3rem;
+    width:  1.3rem;
+    &.expanded-info{
+        right:  0%;
+        bottom: 0%;
+        height: 100%;
+        width:  100%;
+        padding:0.5rem; 
+    }
+}
+.info-icon{
+    height: 1.3rem;
+    width: 1.3rem;
+    background-color:$main-color;
+    float: left;
+    border-radius: 50%;
+    &:hover{cursor:pointer;}
+}
+
+.info-text{
+    margin: 1rem auto 0;
+    max-width: 35rem;
+    padding: 0 2rem;
+    h2{
+        color: $highlights;
+        margin-top: 1.6rem;
+        text-decoration: underline;
+        letter-spacing: 0.3rem;
+        font-weight: 700;
+        font-size: 88%;
+    }
+    h4{
+        color: $highlights;
+        font-size: 65%;
+        margin-top: 0.4rem;
+        margin-bottom:0.1rem;
+    }
+    p{
+        color: $highlights;
+        font-size: 60%;  
+        line-height: 140%;
+        word-spacing: 0.2rem;
+    }
+    br{
+        display: block; 
+        content: "";
+        margin-top: 0.5rem; 
+    }
+    strong{
+        font-weight: 900;
+        color: $highlights;
+    }
+}
+
+
+
 
 
 
 
 .whole-thing > img{
+    z-index: 4;
     position: absolute;
     width:14%;
     bottom: 3.5%;

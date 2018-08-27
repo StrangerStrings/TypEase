@@ -25,20 +25,31 @@ function toSprintModeText(){
    chancesLeft = 5;
    redrawChances();
 
+      $('.letter-stnd').removeClass('letter-appear');
    $('span').text('');
    $('.infoText').html('');
    $('.sprintText').html('Ready?');
 
+
+$('.lettersContainer div div').css({ 'margin-left': 0 , 'width':0})    
+      timedWordBools = [false, false, false, false, false, false, false, false, false]
+      currentWordIsTimed = false;
+
    timeleft = 1000;
    draw();
    $('.timerbar').removeClass('hidden');
+//    $('.sprint').addClass('current-mode')
+      $('.start-button').removeClass('hidden')
+      $('.learnbox-left').addClass('hidden')
+   $('.playbox-left').removeClass('hidden')
+   
 
-   $('.start-button').removeClass('hidden')
 
 }
 
 
 
+//point for correct letter, extra two for word, extra 4 for sentence, extra 4 for timedW
 
 
 
@@ -48,32 +59,28 @@ function toSprintModeText(){
 
 
 function decideIfChangeLetters(){
-   // if (GameLevel > BeforeGameLevel){
-      // BeforeGameLevel = GameLevel;
       vaar = Math.random();
       if (vaar < 0.2){console.log('donothing()');}
       else if (vaar < 0.9){howManyChangeLetters();}
-      // else {console.log('StartSets()');}
-      else {StartSets();console.log('startSets')}
-   // }
+      else {StartSets();}
 }
 
 
 
-function howManyChangeLetters(){
-   multiplier = Math.min(3+GameLevel/2,5);
-   addition = Math.min(6,Math.max(1,GameLevel/2));
-   ActualLetters = Math.floor(Math.random()*(Math.min(3+GameLevel/2,5))+(Math.min(6,Math.max(1,GameLevel/2))));
-   if (ActualLetters > (5.9 + (GameLevel/70) ) ){ActualLetters = 13};
-   ActualLetters *= 2;
-//    console.log(ActualLetters);
-   ChangeLetters();
-}
+  function howManyChangeLetters() {
+    multiplier = Math.min(3 + availableLettersMeasure / 2, 5);
+    addition = Math.min(6, Math.max(1, availableLettersMeasure / 2));
+    ActualLetters = Math.floor(Math.random() * multiplier + addition);
+    if (ActualLetters > (5.9 + (availableLettersMeasure / 70))) { ActualLetters = 13 };
+    ActualLetters *= 2;
+    return ActualLetters
+  }
 
 
 function ChangeLetters(){
    CurrentLetters = OnVowelArray.length + OnCon2Array.length + OnCon1Array.length;
    difference = ActualLetters - CurrentLetters;
+   
    varr1 = Math.random() + Math.abs(difference/10);
    if (ActualLetters == 26){
       console.log('addAll');

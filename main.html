@@ -9,6 +9,7 @@
 <!-- modules -->
 <script src="scripts/variables.js"></script>
 <script src="scripts/learnLevels.js"></script>
+<script src="scripts/sprintLevels.js"></script>
 <script src="scripts/displayOnScreen.js"></script>
 <script src="scripts/addRemoveLetters.js"></script>
 <script src="scripts/actualWords.js"></script>
@@ -38,24 +39,55 @@
             <div>continue</div>     
       </div>
       
-      <img src="images/logo2.png" class="">      
+      <img src="images/logo4.png" class="">      
         
 </div> -->
 
-<img src="images/logo2.png" class="logo-bottom-right">
+<div class="info-page">
+      <div class='info-icon'></div>
+      <div class='info-text'>
+            <h2>Help</h2>
+            <h4>learn</h4>
+            <p>A series of lessons that slowly build up your knowledge of the keyboard’s layout. Each part of the keyboard is split up into
+            stages. Many untimed tasks introduce you the keys one by one, where you must complete the sentences without using up all
+            your ‘chances’ (the blue circles). Followed by a timed challenge at the end as a kind of boss before moving on to the next
+            part. After completing a few levels you will unlock..</p>
+            <h4>play</h4>
+            <p>A series of lessons that slowly build up your knowledge of the keyboard’s layout. Each part of the keyboard is split up into
+            stages. Many untimed tasks introduce you the keys one by one, where you must complete the sentences without using up all
+            your ‘chances’ (the blue circles). Followed by a timed challenge at the end as a kind of boss before moving on to the next
+            part. After completing a few levels you will unlock..</p>
+            <h2>About</h2>
+            <h4></h4>
+            <p>TypEase is the first bit of functioning javascript created by <strong>Ben Green.</strong> It was designed to help him learn to type faster and ease
+            the road to becoming a developer. </p><br>
+            <p>It is written in html, scss and javascript with jquery, using no other external libraries. Many dead ends still hold his
+            footprints, but each one is valuable, shaped by the kind of challenges beginners need to chew through in order to learn.</p><br>
+            <p>Ben hopes you enjoy it and have a little play through.</p>
+            <p>It is an automated amalgamation of approximately 26,000 thoughts..</p>
+            <p>..collected and carved out in code.</p>
+      </div>
+
+
+</div>
+
+
+<img src="images/logo4.png" class="logo-bottom-right">
+
+
    <div class="topcontainer">
 
       <div class="scorebox">
 
          <!-- <div class="score"></div> -->
 
-         <!-- <div class="learnbox-left">
+         <div class="learnbox-left">
                <div class="button-learn-left"></div><h4>1.1</h4><div class="button-learn-right"></div>
-         </div> -->
+         </div>
 
          <div class="playbox-left">
-               <div class='scoree'>a</div>
-               <div class='highscore-is'>best : <div class='highscoree'>c</div></div>
+               <div class='scoree'></div>
+               <div class='highscore-is'>best : <div class='highscoree'></div></div>
          </div>
 
          <div class="borderbox borderbox1 "></div>
@@ -90,11 +122,15 @@
       </div>
          <div class="timerArea">
             <div class="chancesholder">
-               <!-- <p>try again</p> -->
                <div>
                <div class="chance0">
                   <div class="chanceblocker"></div>
                </div>
+               <div class="chance chance10"></div>
+               <div class="chance chance9"></div>
+               <div class="chance chance8"></div>
+               <div class="chance chance7"></div>
+               <div class="chance chance6"></div>
                <div class="chance chance5"></div>
                <div class="chance chance4"></div>
                <div class="chance chance3"></div>
@@ -103,8 +139,8 @@
                </div>
             </div>
             <div class="timerholder" >
+               <p class='try-again hidden'>try again</p>
                <div class="timerbar" >
-      <!-- #F1786D               #FF5E4F             #E85856          #E66F6D     #E8724A     #DD7E5E     #EF835F -->
                </div>
             </div>
          </div>
@@ -114,7 +150,7 @@
 
       <div class="controlbox">
             <div class="modes">
-                  <p class="learn">learn</p><p class="sprint current-mode">play</p>
+                  <p class="learn">learn</p><p class="sprint locked-mode">play</p>
             </div>
             <div class='start-button'>
                   <h3>start</h3>
@@ -128,7 +164,6 @@
          <div class="nextButton  spr" name="toLearn"></div><p class=' spr'>Sprint</p>
          <div class="startstop lrn hidden"></div>
          <div class="startstop spr "></div> -->
-         <div class="borderbox borderbox2"></div>
       </div>
    </div>
 
@@ -190,29 +225,22 @@
 
 
    <div id="bottomcontainer">
-      <div class="highscore" style="margin-right:75px; color:#92DACC; font-weight: 700;">0</div>
+         
+
+<!-- 
+
+            <div class='button btn1'>stop!</div>
+            <div class='button btn2' >success</div>
+            <div class='button btn3' >highest level</div>
+            <div class='button btn4' >add locked</div>
+            <div class='button btn5' >rem 5</div> -->
 
 
-
-            <div class='button btn1'>R-All</div>
-            <div class='button btn2' >cwit</div>
-            <div class='button btn3' >A-All</div>
-            <div class='button btn4' >add 8</div>
-            <div class='button btn5' >rem 5</div>
-      <!-- <div class="counter" style="margin-right:70px;"></div>
-      <div class="attempts" style="margin-right:300px;"></div> -->
-<!--
-      <div class="startstop" style="margin-right:30px;"></div> -->
-
-      <!-- <div class="timerholder" style="width:240px; margin-right:40px;">
-         <div class="timerbar" style="background-color:#EF835F; height:20px; width:40px; margin-top:4px; border-radius:3px;">
-#F1786D               #FF5E4F             #E85856          #E66F6D     #E8724A     #DD7E5E     #EF835F
-         </div>
+       <!-- <div id='illuminatetoggle'>
+         <div id="illuminatetoggle-inside"></div>
       </div> -->
 
-       <div id='illuminatetoggle'>
-         <div id="illuminatetoggle-inside"></div>
-      </div>
+
 <!--
 
       <label><input type="checkbox" name="qwer">

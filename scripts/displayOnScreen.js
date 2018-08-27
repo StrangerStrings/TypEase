@@ -8,7 +8,7 @@ function redrawChances(){
       $('.chance'+i).show();}
 }
 function hideChances(){
-   for( i=1 ; i<=5 ; i++){
+   for( i=1 ; i<=10 ; i++){
       $('.chance'+i).hide();}
 }
 function drawRechargingChance(){
@@ -17,11 +17,6 @@ function drawRechargingChance(){
 
 
 
-
-
-function updateScore(){
-   $('.score').html(score);
-}
 
 
 function lettersOnScreen(){

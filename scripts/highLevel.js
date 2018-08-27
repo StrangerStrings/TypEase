@@ -1,13 +1,16 @@
 
 
 function sentenceFinished(){
-//    if (SetsBool ==  true){CarryOnSets();}
-//    if (SetsBool == false){decideIfChangeLetters();}
-   if (sprintMode == true){
-      howManyChangeLetters();
+   if(sprintMode){
+      if (SetsBool ==  true){CarryOnSets();}
+      if (SetsBool == false && sprintMode){decideIfChangeLetters();}
+
+      $('.lettersContainer div div').css({'margin-left':0, 'width':0})
    }
 
-   if (learnMode == true){
+
+
+   if (learnMode ){
       sentencesLeft --;
       if (sentencesLeft == 0){
          learnLevelUp();
@@ -29,7 +32,7 @@ function startGame(){
 
 
 function checkLetter(letterCode){
-   if (letterCode == 13){sentenceFinished();console.log('j');return;}
+   if (letterCode == 13){sentenceFinished();return;}
 
    if (letterCounter == 0 && timedWordBools[wordCounter]) {
          currentWordIsTimed = true;
@@ -39,7 +42,6 @@ function checkLetter(letterCode){
    if (String.fromCharCode(letterCode).toLowerCase() == answerLetters[wordCounter][letterCounter]){
       score++;
       timeleft += letterReward;
-      updateScore();
 
       addCorrectLetter();
       nextLetter();
@@ -50,13 +52,16 @@ function checkLetter(letterCode){
       if (currentWordIsTimed) {
             currentWordIsTimed = false
             timedWordBools[wordCounter] = false;
-            $('.timedWordBar' + (wordCounter)).css({ "width": 0, "margin-left": 0 });
+            $('.timedWordBar' + (wordCounter)).animate(
+                  { "width": 0, "margin-left": (timedWordWidth) }, 150)
             console.log('nono')
       }
       addIncorrectLetter()
       nextLetter();
       if (chancesLeft == 0){
-         if (learnMode == true){
+         if (learnMode == true) {
+            removeAllLetterClasses();
+            $('.try-again').removeClass('hidden');
             toLearnModeText();
          }else {
             timeleft -= letterPenaltyBig; }
@@ -76,6 +81,7 @@ function checkLetter(letterCode){
          $('.timedWordBar' + (wordCounter)).animate(
                { "width": 0, "margin-left": (timedWordWidth) },200)
 
+            timeleft += SentenceReward
          $('.span' + wordCounter + (letterCounter - 1)).finish();
         $('.span' + wordCounter + (letterCounter - 1)).after('<div class="timedBonus"></div>')
          $('.timedBonus').animate({ top: '-1.9rem', width: '1rem', height: '1rem' }, 150).animate(
@@ -102,4 +108,7 @@ function checkLetter(letterCode){
          addCurrentLetterClass();
       }
    }
+   
+      if (sprintMode) { updateScore();}
+   
 }

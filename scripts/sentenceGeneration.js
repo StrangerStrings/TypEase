@@ -25,6 +25,7 @@ function newSentence(){
 }
 
 
+function howManyWords() { return Math.max(Math.floor((Math.random() * sentenceLengthRange * 2) + 0.5) + sentenceLength - sentenceLengthRange, 1); }
 
 
 /*
@@ -42,8 +43,9 @@ function sectenceGenerator(){
     allLettersArray = OnVowelArray.concat(OnCon1Array,OnCon2Array)
 
 
-   var noOfWords = Math.floor(Math.random()*6)+2;
-   // var noOfWords = howManyWords();
+//     var noOfWords = Math.floor(Math.random() * 6) + 2;
+//    var noOfWords = 3;
+   var noOfWords = howManyWords();
 
    for (i = 0; i < noOfWords; i++) {
       var word = wordGenerator();
@@ -93,12 +95,13 @@ vcProbability is reset at begining of each word (vowel-constonant probabilty)
 function wordGenerator(){
    vcProbability = 0.35;
    var ar = [];
-    var noOfLetters = Math.floor(Math.random() * 8) + 1;   //relate this 8 to the gameLevel
-   // var noOfLetters = howManyLetters()
-      
-    if(true && noOfLetters>1){
+    // var noOfLetters = Math.floor(Math.random() * 8) + 1;   //relate this 8 to the gameLevel
+   var noOfLetters = howManyLetters()
+
+    if(Math.random()>0.2 && noOfLetters>1){
+        console.log('trying')
         var AWarr = actualWords[noOfLetters]
-        for(var b=0; b<10 ;b++){
+        for(var b=0; b<60 ;b++){
             var woord = AWarr[Math.floor(Math.random() * AWarr.length)]
             var allLettersAreAvailable = true;
             for(var a = 0; a < woord.length ;a++){
@@ -186,7 +189,6 @@ function letterGenerator(m1,m2,m3,m4) {
 
 //these are dodgy, don't really work
 
-function  howManyWords()  {return Math.max(Math.floor((Math.random()*sentenceLengthRange*2)+0.5)+sentenceLength-sentenceLengthRange,1);}
 
 function howManyLetters() {return Math.max(Math.floor((Math.random()*wordLengthRange*2)+0.5)+wordLength-wordLengthRange,1);}
 

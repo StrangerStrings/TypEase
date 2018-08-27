@@ -13,35 +13,34 @@ MainLoop.setUpdate(updategame).setDraw(draw).setSimulationTimestep(60);
 
 
 function updategame(){
-
+console.log(timeleft)
     // console.log('word timed =  '+currentWordIsTimed)
 
    timeleft -= timeSpeed;
 
 
-
-   minicounter ++;
-   if (minicounter > 130){
-      minicounter = 0;
-      GameLevel++;
-   }
-
    if (timeleft >1000){
+       console.log('woo')
       score++;
       timeleft = 1000;
-      $('.timerbar').animate({backgroundColor: '#7a71f4'},200).animate({backgroundColor: '#F1786D'},200);
    }
 
 
-   if (chancesLeft < startingChances){
-      chanceRecharge += chanceRechargeRate;
-      if (chanceRecharge >= 100){
-         chancesLeft += 1;
-         redrawChances();
-         chanceRecharge = 0;
-      }
-      drawRechargingChance();
-   }
+// recharging chances stuff
+if(sprintMode){
+    if (chancesLeft < startingChances){
+       chanceRecharge += chanceRechargeRate;
+       if (chanceRecharge >= 100){
+          chancesLeft += 1;
+          redrawChances();
+          chanceRecharge = 0;
+        }
+    }
+    else if(chancesLeft > startingChances){
+        chanceRecharge = 0
+    }
+    drawRechargingChance();
+}
 
    if(currentWordIsTimed){
        timedWordSize --;   
@@ -51,11 +50,12 @@ function updategame(){
 
    if (timeleft <=0){
       if (learnMode){
+        $('.try-again').removeClass('hidden');
          toLearnModeText();
       }else if(sprintMode){
-         if (score > highscore){
-            highscore = score;
-            $('.highscore').html(highscore);
+         if (grade > bestGrade){
+            bestGrade = grade;
+            $('.highscoree').html(bestGrade);
          }
          toSprintModeText();
       }
