@@ -29,16 +29,20 @@
   }
   div{
     border-radius: 50%;
-    background-color: $main-color;
+    // background-color: $main-color
     margin-bottom: 0.07rem;
+    padding: 0rem 0rem 0rem 0.05rem;
+    svg{
+      fill: $main-color;
+    }
     &:hover{cursor: pointer;}
   }
   .button-learn-right.locked-level{
-    background-color: $incorrect;
+    svg{fill: $incorrect;}
     &:hover{cursor: default;}
   }
   .button-learn-left.locked-level{
-    background-color: $background;
+    svg{fill: $background;}
     &:hover{cursor: default;}
   }
 }

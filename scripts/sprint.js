@@ -61,7 +61,7 @@ $('.lettersContainer div div').css({ 'margin-left': 0 , 'width':0})
 function decideIfChangeLetters(){
       vaar = Math.random();
       if (vaar < 0.2){console.log('donothing()');}
-      else if (vaar < 0.9){howManyChangeLetters();}
+      else if (vaar < 0.9){howManyChangeLetters(); console.log('h');}
       else {StartSets();}
 }
 
@@ -73,11 +73,11 @@ function decideIfChangeLetters(){
     ActualLetters = Math.floor(Math.random() * multiplier + addition);
     if (ActualLetters > (5.9 + (availableLettersMeasure / 70))) { ActualLetters = 13 };
     ActualLetters *= 2;
-    return ActualLetters
+    changeLetters()
   }
 
 
-function ChangeLetters(){
+function changeLetters(){
    CurrentLetters = OnVowelArray.length + OnCon2Array.length + OnCon1Array.length;
    difference = ActualLetters - CurrentLetters;
    

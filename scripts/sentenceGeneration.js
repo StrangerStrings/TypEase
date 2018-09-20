@@ -102,6 +102,7 @@ function wordGenerator(){
         console.log('trying')
         var AWarr = actualWords[noOfLetters]
         for(var b=0; b<60 ;b++){
+            console.log('no of letters: ',noOfLetters,'   iteration: ',b)
             var woord = AWarr[Math.floor(Math.random() * AWarr.length)]
             var allLettersAreAvailable = true;
             for(var a = 0; a < woord.length ;a++){

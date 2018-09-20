@@ -117,6 +117,7 @@ $('.first-instructions-box div').click(function(){
 
       $('.info-icon').click(function(){
             $('.info-page').toggleClass('expanded-info')
+            $('.info-icon').toggleClass('expanded-info')
       })
 
 

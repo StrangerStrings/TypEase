@@ -26,20 +26,23 @@
 
 .learnbox-left div {
   border-radius: 50%;
-  background-color: #92DACC;
-  margin-bottom: 0.07rem; }
+  margin-bottom: 0.07rem;
+  padding: 0rem 0rem 0rem 0.05rem; }
+
+.learnbox-left div svg {
+  fill: #92DACC; }
 
 .learnbox-left div:hover {
   cursor: pointer; }
 
-.learnbox-left .button-learn-right.locked-level {
-  background-color: #999; }
+.learnbox-left .button-learn-right.locked-level svg {
+  fill: #999; }
 
 .learnbox-left .button-learn-right.locked-level:hover {
   cursor: default; }
 
-.learnbox-left .button-learn-left.locked-level {
-  background-color: #FFF9ca; }
+.learnbox-left .button-learn-left.locked-level svg {
+  fill: #FFF9ca; }
 
 .learnbox-left .button-learn-left.locked-level:hover {
   cursor: default; }
@@ -553,9 +556,31 @@ body {
 .info-icon {
   height: 1.3rem;
   width: 1.3rem;
-  background-color: #92DACC;
   float: left;
   border-radius: 50%; }
+
+.info-icon svg {
+  fill: #92DACC; }
+
+.info-icon:not(.expanded-info) {
+  border: solid 0.1rem #92DACC;
+  padding: 0.14rem; }
+
+.info-icon:not(.expanded-info) .svg-delete {
+  display: none; }
+
+.info-icon:not(.expanded-info) .svg-i {
+  display: block; }
+
+.info-icon.expanded-info {
+  border: none;
+  padding: 0.2rem; }
+
+.info-icon.expanded-info .svg-delete {
+  display: block; }
+
+.info-icon.expanded-info .svg-i {
+  display: none; }
 
 .info-icon:hover {
   cursor: pointer; }

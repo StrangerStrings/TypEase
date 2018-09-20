@@ -146,10 +146,25 @@ body{
 .info-icon{
     height: 1.3rem;
     width: 1.3rem;
-    background-color:$main-color;
+    // background-color:$main-color;
     float: left;
     border-radius: 50%;
-    &:hover{cursor:pointer;}
+    svg{
+        fill: $main-color;
+    }
+    &:not(.expanded-info){
+        border: solid 0.1rem $main-color;
+        padding: 0.14rem;
+        .svg-delete{display: none;}
+        .svg-i{display: block;}
+    }
+    &.expanded-info{
+        border: none;
+        padding: 0.2rem;
+        .svg-delete{display: block;}
+        .svg-i{display: none;}
+    }
+    &:hover{cursor:pointer;}       
 }
 
 .info-text{
