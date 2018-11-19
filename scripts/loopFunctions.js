@@ -13,14 +13,12 @@ MainLoop.setUpdate(updategame).setDraw(draw).setSimulationTimestep(60);
 
 
 function updategame(){
-console.log(timeleft)
     // console.log('word timed =  '+currentWordIsTimed)
 
    timeleft -= timeSpeed;
 
 
    if (timeleft >1000){
-       console.log('woo')
       score++;
       timeleft = 1000;
    }
@@ -51,13 +49,9 @@ if(sprintMode){
    if (timeleft <=0){
       if (learnMode){
         $('.try-again').removeClass('hidden');
-         toLearnModeText();
+        toLearnModeText();
       }else if(sprintMode){
-         if (grade > bestGrade){
-            bestGrade = grade;
-            $('.highscoree').html(bestGrade);
-         }
-         toSprintModeText();
+        toSprintModeText();
       }
    }
 

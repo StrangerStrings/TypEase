@@ -5,11 +5,13 @@
   "main": "main.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --watch styles -o styles"
+    "scss": "node-sass --watch styles -o styles",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "node-sass": "^4.9.0"
   }
 }

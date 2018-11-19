@@ -9,12 +9,13 @@ function StartSets() {
 function CarryOnSets() {
     console.log('carryOnSets')
     var rrrand = Math.random();
-    console.log('rand: ' + rrrand + ' < ' + (-0.15 + ((3 - NumberOfSets) * (0.3 + (GameLevel * 0.01)))))
+    console.log('rand: ' + rrrand + ' < ' + (-0.15 + ((3 - NumberOfSets) * 0.3 )))
 
-    if (rrrand < (-0.15 + ((3 - NumberOfSets) * (0.3 + (GameLevel * 0.01))))) {
+    if (rrrand < (-0.15 + ((3 - NumberOfSets) * 0.3 ))) {
         AddRandomSet();
     } else { 
         SetsBool = false; 
+        OnSetofSets = []
         NumberOfSets = 0;
     }
 }

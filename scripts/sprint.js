@@ -1,5 +1,6 @@
 function toSprintModePlay(){
 
+   loadGradeData('')
    inPlay = true;
    $('.sprintText').html('');
    newSentence();
@@ -8,7 +9,6 @@ function toSprintModePlay(){
    MainLoop.start();
 
    $('.start-button').addClass('hidden')
-   console.log('fart' + timeSpeed)
 }
 
 function toSprintModeText(){
@@ -17,6 +17,7 @@ function toSprintModeText(){
    MainLoop.stop();
    AddAllLetters();
 
+   saveHighScore()
    score = 0;
    updateScore();
 
@@ -43,8 +44,14 @@ $('.lettersContainer div div').css({ 'margin-left': 0 , 'width':0})
       $('.learnbox-left').addClass('hidden')
    $('.playbox-left').removeClass('hidden')
    
+}
 
-
+function saveHighScore(){
+      if (grade > bestGrade){
+            bestGrade = grade;
+            $('.highscoree').html(bestGrade);
+            localStorage.setItem('bestGrade', JSON.stringify(bestGrade))
+      }
 }
 
 
@@ -61,7 +68,7 @@ $('.lettersContainer div div').css({ 'margin-left': 0 , 'width':0})
 function decideIfChangeLetters(){
       vaar = Math.random();
       if (vaar < 0.2){console.log('donothing()');}
-      else if (vaar < 0.9){howManyChangeLetters(); console.log('h');}
+      else if (vaar < 0.9){howManyChangeLetters();}
       else {StartSets();}
 }
 
@@ -71,8 +78,11 @@ function decideIfChangeLetters(){
     multiplier = Math.min(3 + availableLettersMeasure / 2, 5);
     addition = Math.min(6, Math.max(1, availableLettersMeasure / 2));
     ActualLetters = Math.floor(Math.random() * multiplier + addition);
-    if (ActualLetters > (5.9 + (availableLettersMeasure / 70))) { ActualLetters = 13 };
-    ActualLetters *= 2;
+    if (ActualLetters > (5.9 )) { 
+          ActualLetters = 13 
+      };
+      ActualLetters *= 2;
+      // console.log('multiplier: ',multiplier,'    addition: ',addition, '   letters: ',ActualLetters)
     changeLetters()
   }
 

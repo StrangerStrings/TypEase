@@ -15,19 +15,19 @@ function updateScore() {
                                             if (score > 500) {  // k
                                                 if (score > 550) {  // l
                                                     if (score > 600) {  // m
-                                                        if (score > 1000) {  // n
-                                                            if (score > 280) {  // o
-                                                                if (score > 300) {  // p
-                                                                    if (score > 320) {  // q
-                                                                        if (score > 340) {  // r
-                                                                            if (score > 360) {  // s
-                                                                                if (score > 380) {  // t
-                                                                                    if (score > 400) {  // u
-                                                                                        if (score > 420) {  // v
-                                                                                            if (score > 440) {  // w
-                                                                                                if (score > 460) {  // x
-                                                                                                    if (score > 480) {  // y
-                                                                                                        if (score > 500) {  // z
+                                                        if (score > 650) {  // n
+                                                            if (score > 700) {  // o
+                                                                if (score > 750) {  // p
+                                                                    if (score > 800) {  // q
+                                                                        if (score > 850) {  // r
+                                                                            if (score > 900) {  // s
+                                                                                if (score > 950) {  // t
+                                                                                    if (score > 1000) {  // u
+                                                                                        if (score > 1050) {  // v
+                                                                                            if (score > 1100) {  // w
+                                                                                                if (score > 1150) {  // x
+                                                                                                    if (score > 1200) {  // y
+                                                                                                        if (score > 1250) {  // z
                                                                                                             grade = 'z'
                                                                                                         } else { grade = 'y' }
                                                                                                     } else { grade = 'x' }
@@ -63,7 +63,7 @@ function updateScore() {
 }
 
 function loadGradeData(g) {
-    console.log(g + '   ' + sprintLevels[g])
+    // console.log(g , '   ',sprintLevels[g])
     var data = sprintLevels[g]
 
     timeSpeed = data.timeSpeed
@@ -79,46 +79,22 @@ function loadGradeData(g) {
     availableLettersMeasure = data.availableLettersMeasure
     startingChances = data.startingChances;
     chanceRechargeRate = (100 * 0.06) / data.chanceRechageTime
-
-    console.log(data);
 }
 
 
 
 
 
-// variables to be in here
-
-//  timeSpeed
-
-//  letterReward
-//  wordReward
-//  SentenceReward
-
-//  letterPenalty
-//  letterPenaltyBig
-
-//  sentenceLength
-//  sentenceLengthRange
-//  wordLength
-//  wordLengthRange
-
-//  startingChances
-// availableLettersMeasure
-//  chanceRechageTime
-
-// it will be in an 
-
 var sprintLevels = {
     '':{
         timeSpeed: 1,
 
         letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterPenalty: 10, letterPenaltyBig: 100,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 2, sentenceLengthRange: 0,
+        wordLength: 4, wordLengthRange: 0,
+        availableLettersMeasure: 1 ,
 
         startingChances: 4, chanceRechageTime: 3  
     },
@@ -126,134 +102,315 @@ var sprintLevels = {
         timeSpeed:1,
         
         letterReward: 20 , wordReward: 50 , SentenceReward: 200 ,
-        letterPenalty: 50 , letterPenaltyBig: 200 ,
+        letterPenalty: 10 , letterPenaltyBig: 100 ,
 
-        sentenceLength: 4 , sentenceLengthRange: 2 , 
-        wordLength: 5 , wordLengthRange: 4 ,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 3 , sentenceLengthRange: 0 , 
+        wordLength: 4 , wordLengthRange: 1 ,
+        availableLettersMeasure: 1 ,
 
         startingChances: 4 , chanceRechageTime: 3  
     },
     'b': {
-        timeSpeed: 3,
+        timeSpeed: 1,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 20, wordReward: 50, SentenceReward: 150,
+        letterPenalty: 10, letterPenaltyBig: 100,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 4, sentenceLengthRange: 1,
+        wordLength: 4, wordLengthRange: 1,
+        availableLettersMeasure: 1 ,
 
-        startingChances: 9, chanceRechageTime: 1
+        startingChances: 5, chanceRechageTime: 2
     },
     'c': {
-        timeSpeed: 4,
+        timeSpeed: 2,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 20, wordReward: 40, SentenceReward: 150,
+        letterPenalty: 10, letterPenaltyBig: 100,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
+        sentenceLength: 6, sentenceLengthRange: 0,
+        wordLength: 3, wordLengthRange: 1,
         availableLettersMeasure: 2 ,
 
         startingChances: 4, chanceRechageTime: 3
     },
     'd': {
-        timeSpeed: 5,
+        timeSpeed: 2,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 20, wordReward: 40, SentenceReward: 150,
+        letterPenalty: 10, letterPenaltyBig: 100,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 3, sentenceLengthRange: 0,
+        wordLength: 7, wordLengthRange: 2,
+        availableLettersMeasure: 12 ,
 
-        startingChances: 9, chanceRechageTime: 1
+        startingChances: 4, chanceRechageTime: 1
     },
     'e': {
-        timeSpeed: 6,
+        timeSpeed: 3,
 
         letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterPenalty: 12, letterPenaltyBig: 120,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
+        sentenceLength: 5, sentenceLengthRange: 2,
+        wordLength: 5, wordLengthRange: 2,
         availableLettersMeasure: 2 ,
 
-        startingChances: 4, chanceRechageTime: 3
+        startingChances: 7, chanceRechageTime: 2
     },
     'f': {
-        timeSpeed: 7,
+        timeSpeed: 1,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 10, wordReward: 20, SentenceReward: 100,
+        letterPenalty: 12, letterPenaltyBig: 120,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 6, sentenceLengthRange: 3,
+        wordLength: 6, wordLengthRange: 3,
+        availableLettersMeasure: 4 ,
 
-        startingChances: 4, chanceRechageTime: 3
+        startingChances: 8, chanceRechageTime: 3
     },
     'g': {
-        timeSpeed: 8,
+        timeSpeed: 3,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 15, wordReward: 30, SentenceReward: 150,
+        letterPenalty: 12, letterPenaltyBig: 120,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 4, sentenceLengthRange: 1,
+        wordLength: 5, wordLengthRange: 1,
+        availableLettersMeasure: 6 ,
 
-        startingChances: 4, chanceRechageTime: 3
+        startingChances: 6, chanceRechageTime: 2
     },
     'h': {
-        timeSpeed: 9,
+        timeSpeed: 4,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 16, wordReward: 60, SentenceReward: 160,
+        letterPenalty: 12, letterPenaltyBig: 120,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 4, sentenceLengthRange: 0,
+        wordLength: 5, wordLengthRange: 0,
+        availableLettersMeasure: 12 ,
 
-        startingChances: 9, chanceRechageTime: 1
+        startingChances: 7, chanceRechageTime: 1
     },
     'i': {
         timeSpeed: 3,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 20, wordReward: 40, SentenceReward: 150,
+        letterPenalty: 12, letterPenaltyBig: 120,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 5, sentenceLengthRange: 1,
+        wordLength: 3, wordLengthRange: 1,
+        availableLettersMeasure: 1 ,
 
-        startingChances: 4, chanceRechageTime: 3
+        startingChances: 5, chanceRechageTime: 2
     },
     'j': {
         timeSpeed: 4,
 
-        letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterReward: 20, wordReward: 50, SentenceReward: 150,
+        letterPenalty: 12, letterPenaltyBig: 120,
 
-        sentenceLength: 4, sentenceLengthRange: 2,
-        wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        sentenceLength: 4, sentenceLengthRange: 1,
+        wordLength: 6, wordLengthRange: 1,
+        availableLettersMeasure: 12 ,
 
-        startingChances: 9, chanceRechageTime: 1
+        startingChances: 8, chanceRechageTime: 1
     },
     'k': {
         timeSpeed: 5,
 
+        letterReward: 20, wordReward: 40, SentenceReward: 250,
+        letterPenalty: 13, letterPenaltyBig: 130,
+
+        sentenceLength: 6, sentenceLengthRange: 2,
+        wordLength: 5, wordLengthRange: 4,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 7, chanceRechageTime: 2
+    },
+    'l': {
+        timeSpeed: 4,
+
+        letterReward: 18, wordReward: 50, SentenceReward: 150,
+        letterPenalty: 13, letterPenaltyBig: 130,
+
+        sentenceLength: 4, sentenceLengthRange: 0,
+        wordLength: 7, wordLengthRange: 0,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 6, chanceRechageTime: 2
+    },
+    'm': {
+        timeSpeed: 4,
+
+        letterReward: 18, wordReward: 50, SentenceReward: 150,
+        letterPenalty: 13, letterPenaltyBig: 130,
+
+        sentenceLength: 5, sentenceLengthRange: 0,
+        wordLength: 6, wordLengthRange: 2,
+        availableLettersMeasure: 9 ,
+
+        startingChances: 7, chanceRechageTime: 2
+    },
+    'n': {
+        timeSpeed: 3,
+
+        letterReward: 10, wordReward: 40, SentenceReward: 180,
+        letterPenalty: 13, letterPenaltyBig: 80,
+
+        sentenceLength: 6, sentenceLengthRange: 0,
+        wordLength: 5, wordLengthRange: 1,
+        availableLettersMeasure: 8 ,
+
+        startingChances: 9, chanceRechageTime: 1
+    },
+    'o': {
+        timeSpeed: 4,
+
+        letterReward: 15, wordReward: 40, SentenceReward: 200,
+        letterPenalty: 14, letterPenaltyBig: 140,
+
+        sentenceLength: 7, sentenceLengthRange: 0,
+        wordLength: 4, wordLengthRange: 1,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 9, chanceRechageTime: 2
+    },
+    'p': {
+        timeSpeed: 4,
+
+        letterReward: 15, wordReward: 40, SentenceReward: 200,
+        letterPenalty: 14, letterPenaltyBig: 140,
+
+        sentenceLength: 7, sentenceLengthRange: 0,
+        wordLength: 5, wordLengthRange: 1,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 8, chanceRechageTime: 2
+    },
+    'q': {
+        timeSpeed: 6,
+
+        letterReward: 20, wordReward: 60, SentenceReward: 180,
+        letterPenalty: 14, letterPenaltyBig: 140,
+
+        sentenceLength: 7, sentenceLengthRange: 0,
+        wordLength: 5, wordLengthRange: 1,
+        availableLettersMeasure: 0 ,
+
+        startingChances: 7, chanceRechageTime: 2
+    },
+    'r': {
+        timeSpeed: 4,
+
+        letterReward: 15, wordReward: 40, SentenceReward: 200,
+        letterPenalty: 14, letterPenaltyBig: 140,
+
+        sentenceLength: 6, sentenceLengthRange: 2,
+        wordLength: 6, wordLengthRange: 3,
+        availableLettersMeasure: 8 ,
+
+        startingChances: 7, chanceRechageTime: 2
+    },
+    's': {
+        timeSpeed: 4,
+
         letterReward: 20, wordReward: 50, SentenceReward: 200,
-        letterPenalty: 50, letterPenaltyBig: 200,
+        letterPenalty: 14, letterPenaltyBig: 140,
+
+        sentenceLength: 6, sentenceLengthRange: 0,
+        wordLength: 8, wordLengthRange: 0,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 6, chanceRechageTime: 2
+    },
+    't': {
+        timeSpeed: 6,
+
+        letterReward: 30, wordReward: 60, SentenceReward: 200,
+        letterPenalty: 15, letterPenaltyBig: 150,
+
+        sentenceLength: 4, sentenceLengthRange: 3,
+        wordLength: 4, wordLengthRange: 3,
+        availableLettersMeasure: 1 ,
+
+        startingChances: 8, chanceRechageTime: 1
+    },
+    'u': {
+        timeSpeed: 5,
+
+        letterReward: 20, wordReward: 50, SentenceReward: 200,
+        letterPenalty: 15, letterPenaltyBig: 150,
+
+        sentenceLength: 8, sentenceLengthRange: 0,
+        wordLength: 3, wordLengthRange: 0,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 6, chanceRechageTime: 2
+    },
+    'v': {
+        timeSpeed: 3,
+
+        letterReward: 10, wordReward: 30, SentenceReward: 100,
+        letterPenalty: 15, letterPenaltyBig: 150,
+
+        sentenceLength: 6, sentenceLengthRange: 1,
+        wordLength: 5, wordLengthRange: 2,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 7, chanceRechageTime: 2
+    },
+    'w': {
+        timeSpeed: 4,
+
+        letterReward: 15, wordReward: 40, SentenceReward: 150,
+        letterPenalty: 15, letterPenaltyBig: 150,
+
+        sentenceLength: 4, sentenceLengthRange: 1,
+        wordLength: 5, wordLengthRange: 3,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 8, chanceRechageTime: 2
+    },
+    'x': {
+        timeSpeed: 6,
+
+        letterReward: 20, wordReward: 50, SentenceReward: 200,
+        letterPenalty: 15, letterPenaltyBig: 150,
+
+        sentenceLength: 4, sentenceLengthRange: 2,
+        wordLength: 6, wordLengthRange: 2,
+        availableLettersMeasure: 12 ,
+
+        startingChances: 9, chanceRechageTime: 1
+    },
+    'y': {
+        timeSpeed: 5,
+
+        letterReward: 15, wordReward: 30, SentenceReward: 200,
+        letterPenalty: 16, letterPenaltyBig: 160,
+
+        sentenceLength: 8, sentenceLengthRange: 0,
+        wordLength: 9, wordLengthRange: 0,
+        availableLettersMeasure: 1 ,
+
+        startingChances: 5, chanceRechageTime: 2
+    },
+    'z': {
+        timeSpeed: 3,
+
+        letterReward: 20, wordReward: 30, SentenceReward: 100,
+        letterPenalty: 16, letterPenaltyBig: 160,
 
         sentenceLength: 4, sentenceLengthRange: 2,
         wordLength: 5, wordLengthRange: 4,
-        availableLettersMeasure: 2 ,
+        availableLettersMeasure: 12 ,
 
-        startingChances: 4, chanceRechageTime: 3
+        startingChances: 1, chanceRechageTime: 1
     }
+    
 }
 
 

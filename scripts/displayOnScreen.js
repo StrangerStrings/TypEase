@@ -26,15 +26,12 @@ function lettersOnScreen(){
         $('.span'+i+j).text(answerLetters[i][j].toLowerCase());
       }
       if (timedWordBools[i]){
-            var w = 0
-            for (var k = 0; k < 10 ; k++){
-                  w += $('.span'+i+k).width();
-            }
-            timedWordWidth = w - 8
-            $('.timedWordBar'+i).width(timedWordWidth)
+            drawTimedWord();
       }
     }
 }
+
+
 
 
 

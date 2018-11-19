@@ -42,7 +42,7 @@ var sentenceLengthRange = 2;
 var wordLength           = 5;
 var wordLengthRange      = 4;
 
-var availableLettersMeasure = 0;
+var availableLettersMeasure = 5;
 
 //
 var learnInstructions       ;
@@ -71,8 +71,6 @@ var currentWordIsTimed = false
 var timedWordTotalSize = 0
 var timedWordSize = 0
 var timedWordWidth = 0
-
-var virginVisitor = true;
 
 var allLettersArray = []
 

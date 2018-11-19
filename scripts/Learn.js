@@ -49,14 +49,16 @@ $('.learnbox-left h4').text(learnLevel+'.'+learnSubLevel)
 
 function learnLevelUp(){
 
+    if(learnLevel == 10 && learnSubLevel == 10){
+        return
+   }
+
    learnSubLevel ++;
    if (learnSubLevel > learnLevels[learnLevel].length-1){
       learnLevel ++;
       learnSubLevel = 1;
+      console.log(learnLevel, learnSubLevel)
    }
-   console.log(learnLevel)
-   console.log(learnSubLevel)
-   console.log(highestLevel)
    
    if(learnLevel==3 && learnSubLevel==1 && highestLevel[0]==2 && highestLevel[1]==13 ){
        $('.sprint').removeClass('locked-mode').addClass('just-unlocked')
@@ -65,15 +67,20 @@ function learnLevelUp(){
        },300)
    }
 
-    $('.button-learn-right').removeClass('locked-level')
+    $('.button-learn-right').removeClass('locked-level').removeClass('last-level')
     $('.button-learn-left').removeClass('locked-level')
 
     if (lvlToNum(highestLevel[0], highestLevel[1]) < lvlToNum(learnLevel, learnSubLevel)) {
         highestLevel = [learnLevel, learnSubLevel]
+        localStorage.setItem('highestLevel', JSON.stringify(highestLevel))
      }
     if (lvlToNum(highestLevel[0], highestLevel[1]) == lvlToNum(learnLevel, learnSubLevel)){
         $('.button-learn-right').addClass('locked-level')
    }
+   if(learnLevel == 10 && learnSubLevel == 10){
+        $('.button-learn-right').addClass('last-level')
+   }
+
     
 
 }
@@ -90,22 +97,18 @@ function learnLevelDown() {
     }
 }
 
+
 function lvlToNum(a,b){
     return (a*100)+b
 }
 
 
+
+
+
 function loadLevelData (level){
    RemoveAllLetters();
-   //write function here that takes level.letters, 
-   //  which is all three types mixed together,
-   //and ends up with three new arrays (var's defined in func)
-   //it will do this by..
-   // so, it takes an array that has all three types, 
-   //compares them to each array in turn, 
-   //and pushes it to relavant array.
-   //i can stop this bullshit below, turn on all the letters with the same loop and originall letters array
-   //then after they've been sorted, just say onVowelArray = vowels etc.
+   
    OnVowelArray = []; OnCon1Array= [] ; OnCon2Array = [];
    for (i=0; i < level.letters.length; i++){
        var l = level.letters[i]
@@ -118,25 +121,6 @@ function loadLevelData (level){
             OnCon2Array.push(l)
         }
    }
-
-   //    for (i=0;  i < letters.vowels.length ;i++) {
-   //       var letter = letters.vowels[i];
-   //       OnVowelArray.push(letter);
-   //       turnOnLetter(letter);
-   //    }
-   //    for (i=0;  i < letters.con2s.length ;i++) {
-   //       var letter = letters.con2s[i];
-   //       OnCon2Array.push(letter);
-   //       turnOnLetter(letter);
-   //    }
-   //    for (i=0;  i < letters.con1s.length ;i++) {
-   //       var letter = letters.con1s[i];
-   //       OnCon1Array.push(letter);
-   //       turnOnLetter(letter);
-   //    }
-
-
-
 
    randomLetterBool     = level.randomLetterBool;
    startingChances      = level.startingChances;
@@ -169,14 +153,3 @@ function loadLevelData (level){
 
 
 
-
-
-
-// SentenceLength       = 5;
-// SentencesLengthRange = 1;
-// WordLength           = 6;
-// WordLengthRange      = 2;
-
-// var noOfWords = Math.max(Math.floor((Math.random()*SentenceLengthRange*2)+0.5)+SentenceLength-SentenceLengthRange,1);
-//
-// var noOfLetters = Math.max(Math.floor((Math.random()*WordLengthRange*2)+0.5)+WordLength-WordLengthRange,1);
